@@ -1,0 +1,130 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-2" style="margin-top: 140px;">
+            <form class="form-inline" action="/action_page.php">
+                <div class="form-group">
+                    <label class="control-label" for="select">
+                           <span class="ma-bottom-20">Select Geography</span>
+                           </label>
+                    <select class="select form-control" id="select" name="select" ng-model="dataCtrl.geographyName" ng-change="dataCtrl.updateVariableList()">
+                            <option value="ssa">
+                                Subregional Study Area
+                            </option>
+                            <option value="jurisdiction">
+                                Jurisdiction
+                            </option>
+                            <!-- <option value="pda">
+                              Priority Development Area
+                            </option> -->
+                           
+                           </select>
+                </div>
+                <div class="form-group ma-top-20">
+                    <label class="control-label ma-bottom-20" for="select">
+                          Select County
+                           </label>
+                    <select class="select form-control" id="select1" name="select" ng-model="dataCtrl.countyName">
+                            <option value="Alameda">
+                           Alameda
+                            </option>
+                            <option value="Contra Costa">
+                           Contra Costa
+                            </option>
+                            <option value="Napa">
+                            Napa
+                            </option>
+                            <option value="Marin">
+                                Marin
+                             </option>
+                              <option value="San Francisco">
+                                    San Francisco
+                              </option>
+                               <option value="San Mateo">
+                                        San Mateo
+                                </option>
+                                 <option value="Santa Clara">
+                                            Santa Clara
+                                 </option>
+                                  <option value="Solano">
+                                                Solano
+                                   </option>
+                                   <option value="Sonoma">
+                                                    Sonoma
+                                     </option>
+                           </select>
+                </div>
+                <div class="form-group ma-top-20">
+                    <label class="control-label " for="select">
+                           Select Variable
+                           </label>
+                    <select class="select form-control" id="select4" name="select" ng-model="dataCtrl.variableName" ng-change="dataCtrl.updateTable()" ng-options="variable.variable as variable.variable for variable in dataCtrl.variableList">
+                    </select>
+                </div>
+            </form>
+            <!-- <button class="btn btn-default" ng-click="dataCtrl.updateTable()">View Data</button> -->
+            <button class="btn btn-default ma-top-20" ng-click="dataCtrl.mapView()">View Map</button>
+
+        </div>
+        <div class="col-lg-10 ma-top-40">
+            <div class="table-content">
+                <h1> {{dataCtrl.dataDescription}}</h1>
+                <table class="table">
+                    <thead>
+                        <th></th>
+                        <th>2005</th>
+                        <th>2010</th>
+                        <th>2015</th>
+                        <th>2020</th>
+                        <th>2025</th>
+                        <th>2030</th>
+                        <th>2035</th>
+                        <th>2040</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="data in dataCtrl.finalData">
+                            <td>{{data.name}}</td>
+                            <td>{{data[2005]}}</td>
+                            <td>{{data[2010]}}</td>
+                            <td>{{data[2015]}}</td>
+                            <td>{{data[2020]}}</td>
+                            <td>{{data[2025]}}</td>
+                            <td>{{data[2030]}}</td>
+                            <td>{{data[2035]}}</td>
+                            <td>{{data[2040]}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>{{dataCtrl.countyTotal.name}} County</h4>
+                            </td>
+                            <td>
+                                <h4>{{dataCtrl.countyTotal[2005]}}</h4>
+                            </td>
+                            <td>
+                                <h4>{{dataCtrl.countyTotal[2010]}}</h4>
+                            </td>
+                            <td>
+                                <h4>{{dataCtrl.countyTotal[2015]}}</h4>
+                            </td>
+                            <td>
+                                <h4>{{dataCtrl.countyTotal[2020]}}</h4>
+                            </td>
+                            <td>
+                                <h4>{{dataCtrl.countyTotal[2025]}}</h4>
+                            </td>
+                            <td>
+                                <h4>{{dataCtrl.countyTotal[2030]}}</h4>
+                            </td>
+                            <td>
+                                <h4>{{dataCtrl.countyTotal[2035]}}</h4>
+                            </td>
+                            <td>
+                                <h4>{{dataCtrl.countyTotal[2040]}}</h4>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
