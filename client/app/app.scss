@@ -1,6 +1,5 @@
 $fa-font-path: '/assets/fonts/font-awesome/';
 @import '~font-awesome/scss/font-awesome';
-
 // @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,900|Roboto:300,500,700,900);
 
 /**
@@ -8,24 +7,691 @@ $fa-font-path: '/assets/fonts/font-awesome/';
  */
 
 .browserupgrade {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
 }
 
+.padding-0 {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
+.margin-0 {
+    margin: 0 !important;
+}
+
+.ma-top-10 {
+    margin-top: 10px;
+}
+
+.ma-top-20 {
+    margin-top: 20px;
+}
+
+.ma-top-30 {
+    margin-top: 30px;
+}
+
+.ma-top-40 {
+    margin-top: 40px;
+}
+
+.ma-top-50 {
+    margin-top: 50px;
+}
+
+.ma-top-60 {
+    margin-top: 60px;
+}
+
+.ma-top-70 {
+    margin-top: 70px;
+}
+
+.ma-top-80 {
+    margin-top: 80px;
+}
+
+.ma-top-90 {
+    margin-top: 90px;
+}
+
+.ma-top-100 {
+    margin-top: 100px;
+}
+
+.ma-bottom-20 {
+    margin-bottom: 20px;
+}
+
+.ma-bottom-30 {
+    margin-bottom: 30px;
+}
+
+.ma-bottom-40 {
+    margin-bottom: 40px;
+}
+
+
+/* scss styles */
+
+
+/*!
+ * Start Bootstrap - Grayscale v4.0.0-beta.2 (https://startbootstrap.com/template-overviews/grayscale)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-grayscale/blob/master/LICENSE)
+ */
+
+body {
+    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: black;
+    background-color: transparent;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    margin: 0 0 35px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 0 25px;
+}
+
+@media (min-width: 768px) {
+    p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin: 0 0 35px;
+    }
+}
+
+a {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    color: #fff;
+}
+
+a:focus,
+a:hover {
+    text-decoration: none;
+    color: #1d9b6c;
+}
+
+#mainNav {
+    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: #1B75BC;
+}
+
+#mainNav .navbar-toggler {
+    font-size: 14px;
+    padding: 11px;
+    color: white;
+    border: 1px solid white;
+}
+
+#mainNav .navbar-brand {
+    font-weight: 600;
+}
+
+#mainNav a {
+    color: white;
+}
+
+#mainNav .navbar-nav .nav-item {
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+}
+
+#mainNav .navbar-nav .nav-item:hover {
+    color: fade(white, 80%);
+    outline: none;
+    background-color: #1B75BC;
+}
+
+#mainNav .navbar-nav .nav-item:active,
+#mainNav .navbar-nav .nav-item:focus {
+    outline: none;
+    background-color: #1B75BC;
+}
+
+@media (min-width: 992px) {
+    #mainNav {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        -webkit-transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
+        -moz-transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
+        transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
+        letter-spacing: 1px;
+        border-bottom: none;
+        background: #1B75BC;
+    }
+    #mainNav.navbar-shrink {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        background: #1B75BC;
+    }
+    #mainNav .nav-link.active {
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+    #mainNav .nav-link.active:hover {
+        color: white;
+    }
+}
+
+.masthead {
+    display: table;
+    width: 100%;
+    height: 85vh !important;
+    padding: 200px 0;
+    text-align: center;
+    color: white;
+    background: url("/assets/images/intro-bg.jpg") no-repeat bottom center scroll;
+    background-color: #1B75BC;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.masthead .intro-body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.masthead .intro-body .brand-heading {
+    font-size: 50px;
+}
+
+.masthead .intro-body .intro-text {
+    font-size: 18px;
+}
+
+@media (min-width: 768px) {
+    .masthead {
+        height: 100%;
+        padding: 0;
+    }
+    .masthead .intro-body .brand-heading {
+        font-size: 100px;
+    }
+    .masthead .intro-body .intro-text {
+        font-size: 22px;
+    }
+}
+
+.btn-circle {
+    font-size: 26px;
+    width: 55px;
+    height: 55px;
+    margin-top: 15px;
+    line-height: 45px;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+    color: white;
+    border: 2px solid white;
+    border-radius: 100% !important;
+    background: #1B75BC;
+}
+
+.btn-circle:focus,
+.btn-circle:hover {
+    color: white;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.content-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.data-section {
+    background-color: #fff !important;
+}
+
+.download-section {
+    color: white;
+    background: url("/assets/images/downloads-bg.jpg") no-repeat center center scroll;
+    // background-color: #1B75BC;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@media (min-width: 992px) {
+    .content-section {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+}
+
+.btn {
+    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    border-radius: 0;
+}
+
+.btn-default {
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: #1B75BC;
+}
+
+.btn-default:focus,
+.btn-default:hover {
+    color: black;
+    border: 1px solid #fff;
+    outline: none;
+    background-color: #fff;
+}
+
+ul.banner-social-buttons {
+    margin-top: 0;
+}
+
+@media (max-width: 1199px) {
+    ul.banner-social-buttons {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    ul.banner-social-buttons li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+    ul.banner-social-buttons li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+footer {
+    padding: 10px 0;
+    p {
+        font-size: 14px;
+        margin: 0;
+        color: #fff !important;
+    }
+}
+
+::-moz-selection {
+    background: #fcfcfc;
+    background: rgba(255, 255, 255, 0.2);
+    text-shadow: none;
+}
+
+::selection {
+    background: #fcfcfc;
+    background: rgba(255, 255, 255, 0.2);
+    text-shadow: none;
+}
+
+img::selection {
+    background: transparent;
+}
+
+img::-moz-selection {
+    background: transparent;
+}
+
+body {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* End of scss styles */
+
+
+/*!
+ * Start Bootstrap - Grayscale v4.0.0-beta.2 (https://startbootstrap.com/template-overviews/grayscale)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-grayscale/blob/master/LICENSE)
+ */
+
+body {
+    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    // color: black;
+    // background-color: #fff;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    margin: 0 0 35px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 0 25px;
+}
+
+@media (min-width: 768px) {
+    p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin: 0 0 35px;
+    }
+}
+
+a {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    color: #fff;
+}
+
+a:focus,
+a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+#mainNav {
+    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: #1B75BC;
+}
+
+#mainNav .navbar-toggler {
+    font-size: 14px;
+    padding: 11px;
+    color: white;
+    border: 1px solid white;
+}
+
+#mainNav .navbar-brand {
+    font-weight: 500;
+}
+
+#mainNav a {
+    color: white;
+}
+
+#mainNav .navbar-nav .nav-item {
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+}
+
+#mainNav .navbar-nav .nav-item:hover {
+    color: fade(white, 80%);
+    outline: none;
+    background-color: #1B75BC;
+}
+
+#mainNav .navbar-nav .nav-item:active,
+#mainNav .navbar-nav .nav-item:focus {
+    outline: none;
+    background-color: #1B75BC;
+}
+
+@media (min-width: 992px) {
+    #mainNav {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        -webkit-transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
+        -moz-transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
+        transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
+        letter-spacing: 1px;
+        border-bottom: none;
+        background: #1B75BC;
+    }
+    #mainNav.navbar-shrink {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        background: #1B75BC;
+    }
+    #mainNav .nav-link.active {
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+    #mainNav .nav-link.active:hover {
+        color: white;
+    }
+}
+
+.masthead {
+    display: table;
+    width: 100%;
+    height: 85vh !important;
+    padding: 200px 0;
+    text-align: center;
+    color: white;
+    background: url("/assets/images/intro-bg.jpg") no-repeat bottom center scroll;
+    background-color: #1B75BC;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.masthead .intro-body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.masthead .intro-body .brand-heading {
+    font-size: 50px;
+}
+
+.masthead .intro-body .intro-text {
+    font-size: 18px;
+}
+
+@media (min-width: 768px) {
+    .masthead {
+        height: 100%;
+        padding: 0;
+    }
+    .masthead .intro-body .brand-heading {
+        font-size: 100px;
+    }
+    .masthead .intro-body .intro-text {
+        font-size: 22px;
+    }
+}
+
+.btn-circle {
+    font-size: 26px;
+    width: 55px;
+    height: 55px;
+    margin-top: 15px;
+    line-height: 45px;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+    color: white;
+    border: 2px solid white;
+    border-radius: 100% !important;
+    background: #1B75BC;
+}
+
+.btn-circle:focus,
+.btn-circle:hover {
+    color: white;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.content-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #1B75BC;
+    color: #fff;
+}
+
+.download-section {
+    color: white;
+    background: url("/assets/images/downloads-bg.jpg") no-repeat center center scroll;
+    background-color: #1B75BC;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+@media (min-width: 992px) {
+    .content-section {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+}
+
+.btn {
+    font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    border-radius: 0;
+}
+
+.btn-default {
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: transparent;
+}
+
+.btn-default:focus,
+.btn-default:hover {
+    color: black;
+    border: 1px solid #fff;
+    outline: none;
+    background-color: #fff;
+}
+
+ul.banner-social-buttons {
+    margin-top: 0;
+}
+
+@media (max-width: 1199px) {
+    ul.banner-social-buttons {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    ul.banner-social-buttons li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+    ul.banner-social-buttons li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+footer {
+    padding: 10px 0;
+    background-color: #1B75BC;
+    color: #fff;
+}
+
+footer p {
+    font-size: 12px;
+    margin: 0;
+}
+
+p {
+    /* 16 * 0.0625 = 1px */
+    letter-spacing: 0.0625em;
+}
+
+::-moz-selection {
+    background: #fcfcfc;
+    background: rgba(255, 255, 255, 0.2);
+    text-shadow: none;
+}
+
+::selection {
+    background: #fcfcfc;
+    background: rgba(255, 255, 255, 0.2);
+    text-shadow: none;
+}
+
+img::selection {
+    background: transparent;
+}
+
+img::-moz-selection {
+    background: transparent;
+}
+
+body {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+}
+
+
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
+
+@media screen and (min-width: 100%) {
+    .container {
+        max-width: 100%;
+    }
 }
 
 // Component styles are injected through gulp
+
 /* inject:scss */
+
 @import 'data/data';
 @import 'feedback/feedback';
 @import 'main/main';
 @import 'map/map';
 @import '../components/footer/footer';
+
 /* endinject */
