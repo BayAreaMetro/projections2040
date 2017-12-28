@@ -56,13 +56,13 @@
                 <div class="form-group">
                     <label class="mr-sm-2" for="select4">
                             <span>Select Variable</span>  
-                           </label>
+                    </label>
                     <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="select4" name="select4" ng-model="dataCtrl.variableName" ng-change="dataCtrl.updateTable()" ng-options="variable.variable as variable.variable for variable in dataCtrl.variableList">
                     </select>
                 </div>
             </form>
             <!-- <button class="btn btn-default" ng-click="dataCtrl.updateTable()">View Data</button> -->
-            <button class="btn btn-default ma-top-20" ng-click="dataCtrl.mapView()">View Map</button>
+            <button class="btn btn-data ma-top-20" ng-click="dataCtrl.mapView()">View Map</button>
 
 
         </div>
