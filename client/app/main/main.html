@@ -3,23 +3,20 @@
     <div class="intro-body">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto">
+                <div class="col-lg-12 mx-auto">
                     <h1 class="brand-heading">&nbsp;</h1>
-                    <img src="/assets/images/intro-logos.png" class="img-fluid" alt="Responsive image">
+                    <img src="/assets/images/intro-logos.png" class="img-fluid" alt="Responsive image" style="height:80%;width:80%">
 
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <h1 class="brand-heading">&nbsp;</h1>
-
-                    <br />
                     <p>
                         <a href="#about" class="btn btn-circle js-scroll-trigger">
                             <i class="fa fa-angle-double-down animated"></i>
                         </a>
                     </p>
-
                     <br />
                 </div>
             </div>
@@ -29,41 +26,126 @@
 </header>
 
 <!-- About Section -->
-<section id="about" class="content-section text-left">
+<section id="about" class="banner-section text-left">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 mx-auto">
-                <h2>Projections 2040</h2>
-                <p>Projections 2040 is the most recent in the Association of Bay Area Governments’ series of statistical compendia on demographic, economic, and land use changes in coming decades. The current version covers the period between 2010 and 2040.
+            <div class="col-lg-7 mx-auto">
+                <h1 class="ma-bottom-20">Projections 2040</h1>
+                <p class="text-left">Projections 2040 is the most recent in the Association of Bay Area Governments’ series of statistical compendia on demographic, economic, and land use changes in coming decades. The current version covers the period between 2010 and 2040.
                     The projections illustrate how the region will accommodate growth if local jurisdictions adopt a set of policies consistent with the vision of Plan Bay Area. We make reasonable assumptions about the Bay Area’s share of national economic
                     growth informed by an understanding of the region’s changing demographic characteristics. The distribution of growth within the region among counties, cities and PDAs is built around expected local policies and infrastructure investment
                     as well as historic economic behavior.</p>
-                <h4><b>Some of the changes expected for the Bay Area include:</b></h4>
-                <p>Between 2010 and 2040 the region is expected to add approximately 1.1 million new jobs.</p>
-                <p>The population is projected to grow by 2.1 million.</p>
-                <p>The Professional and Managerial Services employment category is expected to add 380,000 jobs – the most out of any category.</p>
+            </div>
+            <div class="col-lg-5 mx-auto text-right">
+                <div class="item-1">
+                    <p class="bigText">1.1</p>
+                    <p class="mediumText">million new jobs</p>
+                    <p class="smallText">will be added by 2040</p>
+                </div>
+
+                <div class="item-2">
+                    <p class="bigText">2.1</p>
+                    <p class="mediumText">million new residents</p>
+                    <p class="smallText">will be added by 2040</p>
+                </div>
+                <div class="item-3">
+                    <p class="bigText">380k</p>
+                    <p class="mediumText">new jobs</p>
+                    <p class="smallText">will be in the</p>
+                    <p class="smallText"> Professional and Managerial</p>
+                    <p class="smallText">sectors by 2040</p>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section id="content" class="content-section text-left">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mx-auto">
+
+                <h3 class="ma-bottom-20">Bay Area Regional Projections</h3>
+                <p>This feature is exploratory. May not be implemented in this fashion.</p>
+            </div>
+        </div>
+        <!-- Data Charts will go here... -->
+        <div class="row">
+            <div class="col-lg-12 mx-auto">
+                <!-- Tableau Viz -->
+                <div class='tableauPlaceholder' id='viz1514595635970' style='position: relative'><noscript>
+                    <a href='#'>
+                        <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;De&#47;Demographics_37&#47;ChartView&#47;1_rss.png' style='border: none' />
+                    </a>
+                </noscript>
+                    <object class='tableauViz' style='display:none;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                        <param name='embed_code_version' value='3' /> <param name='site_root' value='' />
+                        <param name='name' value='Demographics_37&#47;ChartView' />
+                        <param name='tabs' value='no' />
+                        <param name='toolbar' value='yes' />
+                        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;De&#47;Demographics_37&#47;ChartView&#47;1.png' /> 
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='filter' value='publish=yes' />
+                    </object>
+                </div>
+                <script type='text/javascript'>
+                    var divElement = document.getElementById('viz1514595635970');
+                    var vizElement = divElement.getElementsByTagName('object')[0];
+                    vizElement.style.width = '100%';
+                    vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+                    var scriptElement = document.createElement('script');
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                </script>
+                <!-- Plot.ly Viz -->
+                <!-- &show_link=false will hide Edit Link Button add after sharekey-plotly link -->
+                <!-- <div>
+                    <a href="https://plot.ly/~ksmith_mtc/1/?share_key=DJpnqlJWcqNUrbT9rXIqKd" target="_blank" title="Total Households" style="display: block; text-align: center;"><img src="https://plot.ly/~ksmith_mtc/1.png?share_key=DJpnqlJWcqNUrbT9rXIqKd" alt="Total Households" style="max-width: 100%;width: 600px;" width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+                    <script data-plotly="ksmith_mtc:1" sharekey-plotly="DJpnqlJWcqNUrbT9rXIqKd&show_link=false" src="https://plot.ly/embed.js" async></script>
+                </div> -->
+
+
+
+
+            </div>
+        </div>
+</section>
+
+<!-- Download Section -->
+<section id="download" class="download-section banner-section text-left">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mx-auto">
+                <h1>Download Data</h1>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section id="download-content" class="content-section text-left">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mx-auto">
+                <p>You can download the projections data for free from our Open Data site. The following datasets are available for downloads:</p>
+                <p> <a href="https://open-data-demo.mtc.ca.gov/Agency/Draft-Projections-2017-by-Subregional-Study-Areas/bijg-2bez" target="_blank" class="btn btn-data btn-lg">Projections 2040 by Subregional Study Area</a>
+                </p>
+                <p>
+                    <a href="https://open-data-demo.mtc.ca.gov/Agency/Draft-Projections-2017-By-Jurisdiction/nhbf-ixt8" target="_blank" class="btn btn-data btn-lg">Projections 2040 by Jurisdiction Boundary</a>
+                </p>
+                <!-- <p>
+                                <a href="https://open-data-demo.mtc.ca.gov/Agency/Draft-Projections-2017-by-Priority-Development-Are/wbrw-wuir" target="_blank" class="btn btn-default btn-lg">Projections 2040 by Priority Development Areas</a>
+                            </p> -->
             </div>
         </div>
     </div>
 </section>
 
-<!-- Download Section -->
-<section id="download" class="download-section content-section text-left">
-    <div class="container">
-        <div class="col-lg-12 mx-auto">
-            <h2>Download Data</h2>
-            <p>You can download the projections data for free from our Open Data site. The following datasets are available for downloads:</p>
-            <p> <a href="https://open-data-demo.mtc.ca.gov/Agency/Draft-Projections-2017-by-Subregional-Study-Areas/bijg-2bez" target="_blank" class="btn btn-default btn-lg">Projections 2040 by Subregional Study Area</a>
-            </p>
-            <p>
-                <a href="https://open-data-demo.mtc.ca.gov/Agency/Draft-Projections-2017-By-Jurisdiction/nhbf-ixt8" target="_blank" class="btn btn-default btn-lg">Projections 2040 by Jurisdiction Boundary</a>
-            </p>
-            <!-- <p>
-                <a href="https://open-data-demo.mtc.ca.gov/Agency/Draft-Projections-2017-by-Priority-Development-Are/wbrw-wuir" target="_blank" class="btn btn-default btn-lg">Projections 2040 by Priority Development Areas</a>
-            </p> -->
-        </div>
-    </div>
-</section>
 
 <!-- Contact Section -->
 <!-- <section id="contact" class="content-section text-center">

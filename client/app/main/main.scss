@@ -1,27 +1,94 @@
-.thing-form {
-  margin: 20px 0;
+.bigText {
+    font-size: 90px;
+    font-weight: 700;
+    margin: 0;
+    text-align: left;
+    line-height: 70px;
 }
 
-#banner {
-  border-bottom: none;
-  margin-top: -20px;
+.mediumText {
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0;
+    text-align: left;
+    line-height: 50px;
 }
 
-#banner h1 {
-  font-size: 60px;
-  line-height: 1;
-  letter-spacing: -1px;
+.smallText {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+    text-align: left;
+    line-height: 40px;
 }
 
-.hero-unit {
-  position: relative;
-  padding: 30px 15px;
-  color: #F5F5F5;
-  text-align: center;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-  background: #4393B9;
+.item-1 {
+    animation-name: anim-1;
+    position: absolute;
+    display: block;
+    animation-duration: 60s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
 }
 
-.navbar-text {
-  margin-left: 15px;
+.item-2 {
+    animation-name: anim-2;
+    position: absolute;
+    display: block;
+    animation-duration: 60s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.item-3 {
+    animation-name: anim-3;
+    position: absolute;
+    display: block;
+    animation-duration: 60s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes anim-1 {
+    0%,
+    8.3% {
+        opacity: 0;
+    }
+    8.3%,
+    25% {
+        opacity: 1;
+    }
+    33.33%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes anim-2 {
+    0%,
+    33.33% {
+        opacity: 0;
+    }
+    41.63%,
+    58.29% {
+        opacity: 1;
+    }
+    66.66%,
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes anim-3 {
+    0%,
+    66.66% {
+        opacity: 0;
+    }
+    74.96%,
+    91.62% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }

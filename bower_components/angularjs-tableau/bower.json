@@ -1,0 +1,32 @@
+{
+  "name": "angularjs-tableau",
+  "version": "0.1.8",
+  "main": "./dist/lib/tableau.js",
+  "dependencies": {
+    "angular": "~1.4.2"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.2"
+  },
+  "resolutions": {
+    "angular": "~1.4.2"
+  },
+  "homepage": "https://github.com/jensenkd/angular-tableau",
+  "description": "AngularJS directive for embedding Tableau reports",
+  "keywords": [
+    "Tableau",
+    "Angular",
+    "AngularJS"
+  ],
+  "authors": [
+    "Kevin Jensen"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

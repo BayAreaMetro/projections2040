@@ -23,7 +23,7 @@
                     <label class="mr-sm-2" for="select1">
                             <span>Select County</span>  
                            </label>
-                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="select1" name="select1" ng-model="dataCtrl.countyName">
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="select1" name="select1" ng-model="dataCtrl.countyName" ng-change="dataCtrl.updateTable()">
                             <option value="Alameda">
                            Alameda
                             </option>
@@ -62,14 +62,14 @@
                 </div>
             </form>
             <!-- <button class="btn btn-default" ng-click="dataCtrl.updateTable()">View Data</button> -->
-            <button class="btn btn-data ma-top-20" ng-click="dataCtrl.mapView()">View Map</button>
+            <button class="btn btn-data ma-top-20 ma-bottom-40" ng-click="dataCtrl.mapView()">View Map</button>
 
 
         </div>
         <div class="col-lg-9 col-md-10 col-sm-12 ma-top-80">
             <div class="table-content" style="margin-top: 80px;">
 
-                <h1> {{dataCtrl.dataDescription}}</h1>
+                <h4 class="mb-4 text-caps"> {{dataCtrl.variableName}}</h4>
                 <table class="table table-striped table-responsive">
                     <thead>
                         <th></th>

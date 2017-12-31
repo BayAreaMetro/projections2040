@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2 ma-top-100">
-            <h1>Feedback</h1>
+            <h1 class="mt-4 mb-4">Feedback</h1>
             <div class="alert alert-success ng-hide" role="alert" ng-show="submitFeedbackSuccess"><strong>Thank You!</strong> Our staff will review your comments as soon as possible.</div>
             <div class="alert alert-danger ng-hide" role="alert" ng-show="submitFeedbackFail"><strong>Oops!</strong> Something went wrong. Please submit the form again.</div>
             <p>To provide us with general feedback, bugs and improvements, or suggestions for future releases, please fill out the form below:</p>
@@ -31,7 +31,7 @@
                     <div class="col-sm-10"><textarea class="form-control ng-pristine ng-untouched ng-valid ng-empty" rows="3" id="inputComment" name="inputComment" ng-model="feedback.inputComment"></textarea></div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10"><button class="btn btn-data" type="submit" ng-click="submitFeedback()">Submit</button></div>
+                    <div class="col-sm-offset-2 col-sm-10 mt-4 mb-4 text-right"><button class="btn btn-data" type="submit" ng-click="submitFeedback()">Submit</button></div>
                 </div>
             </form>
         </div>

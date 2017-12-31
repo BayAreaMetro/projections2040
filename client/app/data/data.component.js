@@ -16,11 +16,11 @@ export class DataComponent {
     $onInit() {
 
         var county = 'Alameda';
-        var variable = 'gqpop';
+        var variable = 'Total Households';
         this.dataDescription = 'Population';
         this.countyName = 'Alameda';
         this.geographyName = 'ssa';
-        this.variableName = 'gqpop';
+        this.variableName = 'Total Households';
 
         this.$http.get('https://open-data-demo.mtc.ca.gov/resource/5tik-mgwp.json?$select=variable&$group=variable')
             .then(response => {
