@@ -18,26 +18,19 @@ export class MainController {
             function initViz() {
                 var containerDiv = document.getElementById("vizContainer"),
                     url = "https://public.tableau.com/views/Demographics_37/ChartView?:embed=y&:display_count=yes&publish=yes",
-                    // url = "http://public.tableau.com/views/RegionalSampleWorkbook/College",
-
                     options = {
                         hideTabs: true,
                         onFirstInteractive: function() {
                             console.log("Run this code when the viz has finished loading.");
-                            // console.log(viz.getWorkbook().getActiveSheet());
-                            var worksheet = viz.getWorkbook().getActiveSheet();
-                            // console.log(worksheet.getFiltersAsync());
                         }
 
                     };
 
                 viz = new tableau.Viz(containerDiv, url, options);
-                // console.log(viz.getWorkbook());
-
                 return viz;
-                // Create a viz object and embed it in the container div.
-            }
 
+            }
+            //Set Global viz variable
             this.viz = initViz();
 
 
@@ -92,7 +85,7 @@ export class MainController {
                 });
         }
         //Function for getting data from Socrata Summary Views
-    updateChart(demographics) {
+    updateChart() {
 
         // var chartSelection = this.chartVariable;
         // var dataURL;
