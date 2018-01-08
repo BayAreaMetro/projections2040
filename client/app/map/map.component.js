@@ -45,7 +45,7 @@ export class MapComponent {
         mapboxgl.accessTOKEN = 'pk.eyJ1Ijoiam9zaGNyb2ZmIiwiYSI6IktobmJNQUEifQ.9JuIAa1Y4yvllmERw7-08g';
         map = new mapboxgl.Map({
             container: 'map', // container id
-            style: 'mapbox://styles/joshcroff/cjbeayb7i8qmt2smxtb17nqjq'
+            style: 'mapbox://styles/joshcroff/cjbeayb7i8qmt2smxtb17nqjq',
             // style: 'mapbox://styles/mapbox/light-v9', // stylesheet location
             // style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
             center: [-74.50, 40], // starting position [lng, lat]
