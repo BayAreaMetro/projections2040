@@ -65,6 +65,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 mx-auto">
+
                 <h3 class="ma-bottom-20">Bay Area Regional Projections</h3>
 
             </div>
@@ -72,7 +73,14 @@
         <!-- Data Charts will go here... -->
         <div class="row">
             <div class="col-lg-12 mx-auto">
-                <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="select" name="select" ng-model="$ctrl.updateChartParameter" ng-change="$ctrl.filterViz()">
+                <div class="button-wrapper btn-fill-space mb-5 mt-3">
+                    <button class="btn btn-app" ng-model="$ctrl.updateChartParameter" value="Total Households" ng-click="$ctrl.filterViz($event)"><span class="btnSelect">Total Households</span></button>
+                    <button class="btn btn-app" ng-model="$ctrl.updateChartParameter" value="Household Population" ng-click="$ctrl.filterViz($event)"><span class="btnSelect">Household Population</span></button>
+                    <button class="btn btn-app" ng-model="$ctrl.updateChartParameter" value="Employed Residents" ng-click="$ctrl.filterViz($event)"><span class="btnSelect">Employed Residents</span></button>
+                    <button class="btn btn-app" ng-model="$ctrl.updateChartParameter" value="Group Quarters Population" ng-click="$ctrl.filterViz($event)"><span class="btnSelect">Group Quarters Population</span></button>
+                </div>
+
+                <!-- <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="select" name="select" ng-model="$ctrl.updateChartParameter" ng-change="$ctrl.filterViz()">
                         <option value="">
                         </option>   
                         <option value="Household Population">
@@ -87,7 +95,7 @@
                         <option value="Employed Residents">
                                 Employed Residents
                         </option>
-                 </select>
+                 </select> -->
                 <div id="vizContainer" style="width:100%; height:auto;"></div>
                 <!-- Tableau Viz -->
                 <!-- <div class='tableauPlaceholder' id='viz1514750209653' style='position: relative'>

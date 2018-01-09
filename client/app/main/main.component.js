@@ -111,9 +111,10 @@ export class MainController {
     }
 
     //Filters Tableau Chart based on values returned from Drop Down List 
-    filterViz() {
-        console.log(this.updateChartParameter);
-        var updateParameter = this.updateChartParameter;
+    filterViz(v) {
+        // console.log(this.updateChartParameter);
+        console.log(v.currentTarget.attributes.value.nodeValue);
+        var updateParameter = v.currentTarget.attributes.value.nodeValue;
         console.log(updateParameter);
         var sheet = this.viz.getWorkbook().getActiveSheet();
         if (updateParameter === "") {
