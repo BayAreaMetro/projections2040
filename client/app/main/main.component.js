@@ -13,20 +13,25 @@ export class MainController {
     }
 
     $onInit() {
+            var viz;
+            //Initialize Tableau
+            function initViz() {
+                var containerDiv = document.getElementById("vizContainer"),
+                    url = "https://public.tableau.com/views/Demographics_37/ChartView?:embed=y&:display_count=yes&publish=yes",
+                    options = {
+                        hideTabs: true,
+                        onFirstInteractive: function() {
+                            console.log("Run this code when the viz has finished loading.");
+                        }
 
+                    };
 
-            // var erURL = 'https://open-data-demo.mtc.ca.gov/resource/a9wr-wcu4.json';
+                viz = new tableau.Viz(containerDiv, url, options);
+                return viz;
 
-            // this.$http.get(erURL)
-            //     .then(response => {
-            //         console.log(response.data);
-            //         this.EmployedResidents = response.data
-            //     })
-            //     .catch(err => {
-            //         console.log(err);
-            //     })
-
-
+            }
+            //Set Global viz variable
+            this.viz = initViz();
 
 
             // JQUERY Functions
@@ -81,6 +86,7 @@ export class MainController {
         }
         //Function for getting data from Socrata Summary Views
     updateChart() {
+
         // var chartSelection = this.chartVariable;
         // var dataURL;
         // var chartdata;
@@ -103,7 +109,18 @@ export class MainController {
         //         console.log(err);
         //     })
     }
+
+    //Filters Tableau Chart based on values returned from Drop Down List 
     filterViz() {
+        console.log(this.updateChartParameter);
+        var updateParameter = this.updateChartParameter;
+        console.log(updateParameter);
+        var sheet = this.viz.getWorkbook().getActiveSheet();
+        if (updateParameter === "") {
+            sheet.clearFilterAsync("Demographics");
+        } else {
+            sheet.applyFilterAsync("Demographics", updateParameter, tableau.FilterUpdateType.REPLACE);
+        }
 
     }
 }
