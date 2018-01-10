@@ -49,7 +49,8 @@ export class MapComponent {
             // style: 'mapbox://styles/mapbox/light-v9', // stylesheet location
             // style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
             center: [-74.50, 40], // starting position [lng, lat]
-            zoom: 8 // starting zoom
+            zoom: 8, // starting zoom
+            attributionControl: false
         });
         // console.log(map);
         map.dragRotate.disable();
