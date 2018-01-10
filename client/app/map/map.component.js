@@ -52,15 +52,32 @@ export class MapComponent {
                 // style: 'mapbox://styles/mapbox/light-v9', // stylesheet location
                 // style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
                 center: [-74.50, 40], // starting position [lng, lat]
-                zoom: 8 // starting zoom
+                zoom: 8, // starting zoom
+                attributionControl: false
             });
             // console.log(map);
             map.dragRotate.disable();
 
             // Add zoom and rotation controls to the map.
-            map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+            map.addControl(new mapboxgl.NavigationControl(), 'top-left');
             map.setCenter([-122.24164, 37.76521], 12);
+            map.addControl(new MapboxGeocoder({
+                accessToken: 'pk.eyJ1IjoibXppeWFtYmkiLCJhIjoid3dLMWFSWSJ9.hnKFXmWmSwyhsSJp6vucig'
+            }));
         }
+
+        // map.on('load', function() {
+        //     map.addSource('dem', {
+        //         "type": "raster-dem",
+        //         "url": "mapbox://mapbox.terrain-rgb"
+        //     }).addLayer({
+        //         "id": "hillshading",
+        //         "source": "dem",
+        //         "type": "hillshade"
+        //             // insert below waterway-river-canal-shadow;
+        //             // where hillshading sits in the Mapbox Outdoors style
+        //     }, 'waterway-river-canal-shadow');
+        // })
 
         // console.log(places);
         // map.on('load', function() {
@@ -164,7 +181,7 @@ export class MapComponent {
 
 
 
-        // this.map = map;
+        //this.map = map;
 
 
     }
