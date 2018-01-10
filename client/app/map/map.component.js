@@ -44,8 +44,8 @@ export class MapComponent {
         function initMap() {
 
             var map, mapFeatures, filterFeatures;
-            //mapboxgl.accessToken = 'pk.eyJ1IjoibXppeWFtYmkiLCJhIjoid3dLMWFSWSJ9.hnKFXmWmSwyhsSJp6vucig';
-            mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zaGNyb2ZmIiwiYSI6IktobmJNQUEifQ.9JuIAa1Y4yvllmERw7-08g'; //MTC Mapbox Style access token
+            //mapboxgl.accessToken = 'pk.eyJ1IjoibXppeWFtYmkiLCJhIjoid3dLMWFSWSJ9.hnKFXmWmSwyhsSJp6vucig'; //MTC Mapbox access token
+            mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zaGNyb2ZmIiwiYSI6IktobmJNQUEifQ.9JuIAa1Y4yvllmERw7-08g'; //joshcroff Mapbox Style access token
             map = new mapboxgl.Map({
                 container: 'map', // container id
                 style: 'mapbox://styles/joshcroff/cjbeayb7i8qmt2smxtb17nqjq', // MTC Mapbox Style
