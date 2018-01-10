@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row">
-        <div class="col-lg-3 col-md-2 col-sm-0" style="margin-top: 240px;">
+        <div class="col-lg-3 col-md-2 col-sm-0 mb-5" style="margin-top: 240px;">
             <form class="form-inline" action="/action_page.php">
                 <div class="form-group">
                     <label class="mr-sm-2" for="select">
                            <span>Select Geography</span>
                            </label>
-                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="select" name="select" ng-model="dataCtrl.geographyName" ng-change="dataCtrl.updateVariableList()">
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="select" name="select" ng-model="dataCtrl.geographyName" ng-change="dataCtrl.updateTable()">
                             <option value="ssa">
                                 Subregional Study Area
                             </option>
@@ -62,11 +62,11 @@
                 </div>
             </form>
             <!-- <button class="btn btn-default" ng-click="dataCtrl.updateTable()">View Data</button> -->
-            <button class="btn btn-data ma-top-20 ma-bottom-40" ng-click="dataCtrl.mapView()">View Map</button>
+            <!-- <button class="btn btn-data ma-top-20 ma-bottom-40" ng-click="dataCtrl.mapView()">View Map</button> -->
 
 
         </div>
-        <div class="col-lg-9 col-md-10 col-sm-12 ma-top-80">
+        <div class="col-lg-9 col-md-10 col-sm-12 ma-top-80 mb-5">
             <div class="table-content" style="margin-top: 80px;">
 
                 <h4 class="mb-4 text-caps"> {{dataCtrl.variableName}}</h4>
@@ -83,7 +83,7 @@
                         <th>2040</th>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="data in dataCtrl.finalData">
+                        <tr ng-repeat="data in dataCtrl.finalData | orderBy:'sortOrder'">
                             <td>{{data.name}}</td>
                             <td class="text-right">{{data[2005]| number:0}}</td>
                             <td class="text-right">{{data[2010]| number:0}}</td>

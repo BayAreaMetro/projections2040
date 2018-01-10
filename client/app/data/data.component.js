@@ -24,7 +24,7 @@ export class DataComponent {
 
         this.$http.get('https://open-data-demo.mtc.ca.gov/resource/5tik-mgwp.json?$select=variable&$group=variable')
             .then(response => {
-                console.log(response.data);
+                //console.log(response.data);
                 this.variableList = response.data;
             })
             .catch(err => {
@@ -33,7 +33,7 @@ export class DataComponent {
 
         this.$http.get('https://open-data-demo.mtc.ca.gov/resource/5tik-mgwp.json?variable=' + variable + '&county=' + county)
             .then(response => {
-                // console.log(response.data[0]);
+                //console.log(response.data[0]);
                 var responseData = response.data;
 
                 //Get list of unique SSAs
@@ -75,6 +75,7 @@ export class DataComponent {
                 countyTotal[2040] = _.sumBy(finalData, 2040);
 
                 this.finalData = finalData;
+                console.log(finalData);
                 this.countyTotal = countyTotal;
 
 
@@ -86,23 +87,24 @@ export class DataComponent {
         var variable = this.variableName;
         var geography = this.geographyName;
         var apiURL;
-        console.log(geography);
+        //console.log(geography);
 
         if (geography === 'jurisdiction') {
-            apiURL = ' https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.json';
-        } else if (geography === 'ssa') {
+            apiURL = 'https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.json';
+        } else
+        if (geography === 'ssa') {
             apiURL = 'https://open-data-demo.mtc.ca.gov/resource/5tik-mgwp.json';
         } else if (geography === 'pda') {
             apiURL = 'https://open-data-demo.mtc.ca.gov/resource/bt2d-fhg7.json';
         }
 
-        console.log('running');
+        //console.log('running');
         console.log(apiURL + '?variable=' + variable + '&county=' + county);
 
         this.$http.get(apiURL + '?variable=' + variable + '&county=' + county)
             .then(response => {
                 console.log(response.data[0]);
-                this.dataDescription = response.data[0].concept;
+                this.dataDescription = response.data[0].category;
                 var responseData = response.data;
                 var uniqueNames = [];
 
@@ -120,23 +122,31 @@ export class DataComponent {
                 uniqueNames.forEach(element => {
                     var geoByYear = {};
                     geoByYear.name = element;
+                    //console.log(element);
+                    //geoByYear.sort = element;
                     // Loop through response data
                     if (geography === 'ssa') {
                         for (const key in responseData) {
                             if (responseData[key].ssa === element) {
                                 var year = responseData[key].year;
+                                var sort = 'sortOrder';
                                 geoByYear[year] = Math.round(responseData[key].value);
+                                geoByYear[sort] = Math.round(responseData[key].sort_order);
                             }
                         }
                     } else if (geography === 'jurisdiction') {
                         for (const key in responseData) {
                             if (responseData[key].juris === element) {
                                 var year = responseData[key].year;
+                                var sort = 'sortOrder';
                                 geoByYear[year] = Math.round(responseData[key].value);
+                                geoByYear[sort] = Math.round(responseData[key].sort_order);
+                                //console.log(geoByYear);
                             }
                         }
                     }
                     finalData.push(geoByYear);
+                    console.log(geoByYear);
                 });
 
 
@@ -155,6 +165,7 @@ export class DataComponent {
 
                 // Set scope variables
                 this.finalData = finalData;
+                //console.log(finalData);
                 this.countyTotal = countyTotal;
 
 

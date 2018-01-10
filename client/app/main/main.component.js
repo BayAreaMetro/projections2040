@@ -13,25 +13,58 @@ export class MainController {
     }
 
     $onInit() {
-            var viz;
+
             //Initialize Tableau
+            var viz, dataviz;
+
+            //setting up the Divs
+
+
+            //setting up the URLs
+
+
+
+
+
+
             function initViz() {
-                var containerDiv = document.getElementById("vizContainer"),
-                    url = "https://public.tableau.com/views/Demographics_37/ChartView?:embed=y&:display_count=yes&publish=yes",
+
+                var vizDiv = document.getElementById("vizContainer"),
+                    chartURL = "https://public.tableau.com/views/Demographics_37/ChartView?:showVizHome=no",
                     options = {
                         hideTabs: true,
                         onFirstInteractive: function() {
-                            console.log("Run this code when the viz has finished loading.");
+                            //console.log("Loading ChartViz");
                         }
 
                     };
-
-                viz = new tableau.Viz(containerDiv, url, options);
+                viz = new tableau.Viz(vizDiv, chartURL, options);
                 return viz;
 
             }
+
+            function initDataViz() {
+
+                var dataDiv = document.getElementById("dataContainer"),
+                    dataURL = "https://public.tableau.com/views/Demographics_37/DataView?:showVizHome=no",
+                    doptions = {
+                        hideTabs: true,
+                        onFirstInteractive: function() {
+                            //console.log("Loading DataViz");
+                        }
+
+                    };
+                dataviz = new tableau.Viz(dataDiv, dataURL, doptions);
+                return dataviz;
+
+            }
+
+
             //Set Global viz variable
+
             this.viz = initViz();
+            this.dataviz = initDataViz();
+            //console.log(dataviz);
 
 
             // JQUERY Functions
@@ -113,14 +146,14 @@ export class MainController {
     //Filters Tableau Chart based on values returned from Drop Down List 
     filterViz(v) {
         // console.log(this.updateChartParameter);
-        console.log(v.currentTarget.attributes.value.nodeValue);
+        //console.log(v.currentTarget.attributes.value.nodeValue);
         var updateParameter = v.currentTarget.attributes.value.nodeValue;
-        console.log(updateParameter);
+        //console.log(updateParameter);
         var sheet = this.viz.getWorkbook().getActiveSheet();
         if (updateParameter === "") {
-            sheet.clearFilterAsync("Demographics");
+            sheet.clearFilterAsync("Category");
         } else {
-            sheet.applyFilterAsync("Demographics", updateParameter, tableau.FilterUpdateType.REPLACE);
+            sheet.applyFilterAsync("Category", updateParameter, tableau.FilterUpdateType.REPLACE);
         }
 
     }
