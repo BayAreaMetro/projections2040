@@ -32,9 +32,9 @@ export class MapComponent {
 
         //Get county FIPS lookup
         var countyLookup = this.dataService.getCountyLookup();
-        console.log(countyLookup);
+        //console.log(countyLookup);
 
-        console.log(params);
+        //console.log(params);
         if (!params.geography) {
             initMap()
         } else {
@@ -64,20 +64,32 @@ export class MapComponent {
             map.addControl(new MapboxGeocoder({
                 accessToken: 'pk.eyJ1IjoibXppeWFtYmkiLCJhIjoid3dLMWFSWSJ9.hnKFXmWmSwyhsSJp6vucig'
             }));
+
+            // map.addSource('dem', {
+            //     "type": "raster-dem",
+            //     "url": "mapbox://mapbox.terrain-rgb"
+            // }).addLayer({
+            //     "id": "hillshading",
+            //     "source": "dem",
+            //     "type": "hillshade"
+            // }, firstSymbolId);
         }
 
+        function addLayers() {
+            var layers = map.getStyle().layers;
+            console.log(layers);
+            // Find the index of the first symbol layer in the map style
+            var firstSymbolId;
+            for (var i = 0; i < layers.length; i++) {
+                if (layers[i].type === 'symbol') {
+                    firstSymbolId = layers[i].id;
+                    break;
+                }
+            }
+        }
         // map.on('load', function() {
-        //     map.addSource('dem', {
-        //         "type": "raster-dem",
-        //         "url": "mapbox://mapbox.terrain-rgb"
-        //     }).addLayer({
-        //         "id": "hillshading",
-        //         "source": "dem",
-        //         "type": "hillshade"
-        //             // insert below waterway-river-canal-shadow;
-        //             // where hillshading sits in the Mapbox Outdoors style
-        //     }, 'waterway-river-canal-shadow');
-        // })
+
+        // });
 
         // console.log(places);
         // map.on('load', function() {
@@ -181,8 +193,8 @@ export class MapComponent {
 
 
 
-        //this.map = map;
-
+        this.map = map;
+        //addLayers();
 
     }
 
