@@ -58,6 +58,10 @@ export class MapComponent {
         // Add zoom and rotation controls to the map.
         map.addControl(new mapboxgl.NavigationControl(), 'top-right');
         map.setCenter([-122.24164, 37.76521], 12);
+        //ADD GEOCODER
+        map.addControl(new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken
+        }));
 
         // console.log(places);
         map.on('load', function() {
