@@ -128,6 +128,17 @@ export class MapComponent {
                         'fill-outline-color': 'black'
                     }
                 })
+          map.addSource('dem', {
+        "type": "raster-dem",
+        "url": "mapbox://mapbox.terrain-rgb"
+    }).addLayer({
+        "id": "hillshading",
+        "source": "dem",
+        "type": "hillshade"
+    // insert below waterway-river-canal-shadow;
+    // where hillshading sits in the Mapbox Outdoors style
+    }, 'waterway-river-canal-shadow');
+})
             var countyFIP = _.filter(countyLookup, { 'name': params.county });
             if (params.geography === 'jurisdiction') {
                 map.setFilter('placesLayer', ['==', 'CountyFIP', countyFIP[0].shortFIP]);
