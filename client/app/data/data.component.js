@@ -17,7 +17,7 @@ export class DataComponent {
 
         var county = 'Alameda';
         var variable = 'Total Households';
-        this.dataDescription = 'Population';
+        this.dataDescription = 'Households';
         this.countyName = 'Alameda';
         this.geographyName = 'ssa';
         this.variableName = 'Total Households';
@@ -34,6 +34,7 @@ export class DataComponent {
         this.$http.get('https://open-data-demo.mtc.ca.gov/resource/5tik-mgwp.json?variable=' + variable + '&county=' + county)
             .then(response => {
                 //console.log(response.data[0]);
+                this.dataDescription = response.data[0].category;
                 var responseData = response.data;
 
                 //Get list of unique SSAs
@@ -53,7 +54,9 @@ export class DataComponent {
                     for (const key in responseData) {
                         if (responseData[key].ssa === element) {
                             var year = responseData[key].year;
+                            var sort = 'sortOrder';
                             geoByYear[year] = Math.round(responseData[key].value);
+                            geoByYear[sort] = Math.round(responseData[key].sort_order);
                         }
                     }
                     finalData.push(geoByYear);
@@ -99,11 +102,11 @@ export class DataComponent {
         }
 
         //console.log('running');
-        console.log(apiURL + '?variable=' + variable + '&county=' + county);
+        //console.log(apiURL + '?variable=' + variable + '&county=' + county);
 
         this.$http.get(apiURL + '?variable=' + variable + '&county=' + county)
             .then(response => {
-                console.log(response.data[0]);
+                //console.log(response.data[0]);
                 this.dataDescription = response.data[0].category;
                 var responseData = response.data;
                 var uniqueNames = [];
@@ -146,7 +149,7 @@ export class DataComponent {
                         }
                     }
                     finalData.push(geoByYear);
-                    console.log(geoByYear);
+                    //console.log(geoByYear);
                 });
 
 
