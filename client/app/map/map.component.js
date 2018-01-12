@@ -43,16 +43,23 @@ export class MapComponent {
 
         function initMap() {
 
-            var map, mapFeatures, filterFeatures;
+            var map, mapFeatures, filterFeatures, bounds;
             //mapboxgl.accessToken = 'pk.eyJ1IjoibXppeWFtYmkiLCJhIjoid3dLMWFSWSJ9.hnKFXmWmSwyhsSJp6vucig'; //MTC Mapbox access token
             mapboxgl.accessToken = 'pk.eyJ1Ijoiam9zaGNyb2ZmIiwiYSI6IktobmJNQUEifQ.9JuIAa1Y4yvllmERw7-08g'; //joshcroff Mapbox Style access token
+            // var bounds = [
+            //     [-74.04728500751165, 40.68392799015035], // Southwest coordinates
+            //     [-73.91058699000139, 40.87764500765852] // Northeast coordinates
+            // ];
             map = new mapboxgl.Map({
                 container: 'map', // container id
                 style: 'mapbox://styles/joshcroff/cjbeayb7i8qmt2smxtb17nqjq', // MTC Mapbox Style
                 // style: 'mapbox://styles/mapbox/light-v9', // stylesheet location
                 // style: 'mapbox://styles/mapbox/streets-v9', // stylesheet location
                 center: [-74.50, 40], // starting position [lng, lat]
-                zoom: 8, // starting zoom
+                zoom: 9, // starting zoom
+                maxZoom: 13,
+                minZoom: 8,
+                //maxBounds: bounds, // Sets bounds as max
                 attributionControl: false
             });
             // console.log(map);
