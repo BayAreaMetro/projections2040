@@ -14,27 +14,40 @@ export class DataComponent {
     }
 
     $onInit() {
-
+        //Initial Filter
         var county = 'Alameda';
         var variable = 'Total Households';
-        this.dataDescription = 'Households';
+        var category = 'Households';
+        this.county = county;
+        this.variable = variable;
+        this.category = category;
+        //Set Filter Control Selection Values
+        this.dataGroup = 'Households';
         this.countyName = 'Alameda';
         this.geographyName = 'ssa';
         this.variableName = 'Total Households';
+        this.currentName = 'Total Households';
 
-        this.$http.get('https://open-data-demo.mtc.ca.gov/resource/5tik-mgwp.json?$select=variable&$group=variable')
+        //Get Data for Category and Variable combo
+        this.$http.get('https://open-data-demo.mtc.ca.gov/resource/5tik-mgwp.json?$select=category,variable&$group=category,variable&$order=category,variable')
             .then(response => {
                 //console.log(response.data);
-                this.variableList = response.data;
+                this.variableStore = response.data;
+                this.variableStoreComplete = response.data;
+                this.updateVariableList();
             })
             .catch(err => {
                 console.log(err);
             })
-
-        this.$http.get('https://open-data-demo.mtc.ca.gov/resource/5tik-mgwp.json?variable=' + variable + '&county=' + county)
+            //Build Data Table Store from Initial Filter
+            //Uses where clause Instead
+            //https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.json?$where=category=%27Total%20Jobs%27%20AND%20variable=%27Other%27%20AND%20county=%27Alameda%27%20AND%20source=%27Estimate%27%20OR%20source=%27Modeled%27%20OR%20source=%27Base%20Year%20B%27
+            //this.$http.get('https://open-data-demo.mtc.ca.gov/resource/5tik-mgwp.json?category=' + category + '&variable=' + variable + '&county=' + county)
+        this.$http.get("https://open-data-demo.mtc.ca.gov/resource/5tik-mgwp.json?$where=category=" + "'" + category + "'" + " AND variable=" + "'" + variable + "'" + " AND county=" + "'" + county + "'" + " AND source <>'Base Year A'")
             .then(response => {
-                //console.log(response.data[0]);
-                this.dataDescription = response.data[0].category;
+                console.log(response.data[0]);
+                this.dataGroup = response.data[0].category;
+                //console.log(this.dataGroup, ' Line 45');
                 var responseData = response.data;
 
                 //Get list of unique SSAs
@@ -78,19 +91,24 @@ export class DataComponent {
                 countyTotal[2040] = _.sumBy(finalData, 2040);
 
                 this.finalData = finalData;
-                console.log(finalData);
+                //console.log(finalData);
                 this.countyTotal = countyTotal;
-
+                this.updateVariableList();
 
             });
+
     }
 
     updateTable() {
         var county = this.countyName;
+        var category = this.dataGroup;
         var variable = this.variableName;
         var geography = this.geographyName;
         var apiURL;
+        this.currentName = this.variableName;
         //console.log(geography);
+        //console.log(this.variableStore);
+        //console.log(category)
 
         if (geography === 'jurisdiction') {
             apiURL = 'https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.json';
@@ -100,15 +118,17 @@ export class DataComponent {
         } else if (geography === 'pda') {
             apiURL = 'https://open-data-demo.mtc.ca.gov/resource/bt2d-fhg7.json';
         }
-
         //console.log('running');
-        //console.log(apiURL + '?variable=' + variable + '&county=' + county);
-
-        this.$http.get(apiURL + '?variable=' + variable + '&county=' + county)
+        //console.log(apiURL + '?category=' + category + '&variable=' + variable + '&county=' + county);
+        this.$http.get(apiURL + "?$where=category=" + "'" + category + "'" + " AND variable=" + "'" + variable + "'" + " AND county=" + "'" + county + "'" + " AND source <>'Base Year A'")
+            //this.$http.get(apiURL + '?category=' + category + '&variable=' + variable + '&county=' + county)
             .then(response => {
-                //console.log(response.data[0]);
-                this.dataDescription = response.data[0].category;
+                //console.log(response.data, ' Line 120');
+                this.dataGroup = response.data[0].category;
+                //console.log(this.dataGroup, ' Line 122');
                 var responseData = response.data;
+                this.variableDataStore = responseData;
+                //console.log(this.variableDataStore);
                 var uniqueNames = [];
 
                 if (geography === 'ssa') {
@@ -177,7 +197,8 @@ export class DataComponent {
     }
 
     updateVariableList() {
-        console.log(this.geographyName);
+        //console.log('Variable List Updated');
+        this.variableStore = _.filter(this.variableStoreComplete, { 'category': this.dataGroup });
     }
 
     mapView() {
