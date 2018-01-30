@@ -1,0 +1,14 @@
+{
+  "name": "gis-email",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "async": "^2.0.1",
+    "mssql": "^3.3.0",
+    "octonode": "^0.9.1",
+    "request": "^2.79.0"
+  }
+}
