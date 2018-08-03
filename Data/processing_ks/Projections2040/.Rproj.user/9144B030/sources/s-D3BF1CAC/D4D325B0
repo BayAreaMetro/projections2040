@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1533314419284.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3849012103",
+    "id" : "D4D325B0",
+    "lastKnownWriteTime" : 1517613350,
+    "last_content_update" : 1517613350,
+    "path" : "~/Downloads/Projections2040/scripts/Rename Variables.R",
+    "project_path" : "scripts/Rename Variables.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
