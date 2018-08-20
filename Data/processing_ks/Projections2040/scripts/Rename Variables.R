@@ -7,11 +7,28 @@ library("WriteXLS")
 library(reshape2)
 library(readr)
 library(lettercase)
+library(here)
 
-setwd("~/Documents/GitHub/projections2040/Data")
+###########
+######Make Sub Study Area (SSA) Variables Human Readable
+##########
 
-SSA <- read_csv("projectionsdata_SSA.csv", col_types = cols(X1 = col_skip()))
+#assumes user has opened Projections2040_DataProcessing_JS.RProj file in the github repository. 
+SSA <- read_csv(here("data/projectionsdata_SSA.csv"), col_types = cols(X1 = col_skip()))
 
+#results in:
+#Warning messages:
+# 2: In read_tokens_(data, tokenizer, col_specs, col_names, locale_,  :
+#                      length of NULL cannot be changed
+# 3: In read_tokens_(data, tokenizer, col_specs, col_names, locale_,  :
+#                       length of NULL cannot be changed
+# 4: In read_tokens_(data, tokenizer, col_specs, col_names, locale_,  :
+#                      length of NULL cannot be changed
+#comparing with this read:
+#SSA2 <- read_csv(here("data/projectionsdata_SSA.csv"))
+#skim(SSA)
+#skim(SSA2)
+#shows that the data are the same either way, so ignoring warning. 
 
 #Population
 SSA$Variable <- gsub("gqpop","Population in Group Quarters", SSA$Variable)
@@ -84,7 +101,15 @@ SSA$Variable <- gsub("mwtempn","Manufacturing and Wholesale", SSA$Variable)
 SSA$Variable <- gsub("retempn","Retail", SSA$Variable)
 SSA$Variable <- gsub("agrempn","Agriculture and Natural Resources", SSA$Variable)
 
-#Priority Development Areas
+###########
+######End Sub Study Area (SSA)
+##########
+
+
+###########
+######Priority Development Areas
+##########
+
 #AO: deprecated
 # PDA <- read_csv("projectionsdata_pda.csv", col_types = cols(X1 = col_skip()))
 
@@ -155,9 +180,15 @@ SSA$Variable <- gsub("agrempn","Agriculture and Natural Resources", SSA$Variable
 # PDA$Variable <- gsub("retempn","Retail", PDA$Variable)
 # PDA$Variable <- gsub("agrempn","Agriculture and Natural Resources", PDA$Variable)
 
-#Priority Development Areas
+###########
+######End Priority Development Areas
+##########
 
-City <- read_csv("projectionsdata_juris.csv", col_types = cols(X1 = col_skip()))
+###########
+######Make City Variables Human readable
+##########
+
+City <- read_csv(here("data/projectionsdata_juris.csv"), col_types = cols(X1 = col_skip()))
 
 #Population
 City$Variable <- gsub("gqpop","Population in Group Quarters", City$Variable)
@@ -213,10 +244,12 @@ City$Variable <- gsub("sfdu","Single Family Dwelling Units", City$Variable)
 
 #Income
 #AO: deprecated
-# City$Variable <- gsub("hhincq1","Household Income Less than $30k", City$Variable)
-# City$Variable <- gsub("hhincq2","Household Income $30k to $59.9k", City$Variable)
-# City$Variable <- gsub("hhincq3","Household Income $60k to $99.9k", City$Variable)
-# City$Variable <- gsub("hhincq4","Household Income $100k and Above", City$Variable)
+#TB: this may be a dependency of the socrata/website setup
+#putting it back in for now
+City$Variable <- gsub("hhincq1","Household Income Less than $30k", City$Variable)
+City$Variable <- gsub("hhincq2","Household Income $30k to $59.9k", City$Variable)
+City$Variable <- gsub("hhincq3","Household Income $60k to $99.9k", City$Variable)
+City$Variable <- gsub("hhincq4","Household Income $100k and Above", City$Variable)
 
 #Jobs
 City$Variable <- gsub("othempn","Other", City$Variable)
@@ -226,6 +259,14 @@ City$Variable <- gsub("herempn","Health and Educational Services", City$Variable
 City$Variable <- gsub("mwtempn","Manufacturing and Wholesale", City$Variable)
 City$Variable <- gsub("retempn","Retail", City$Variable)
 City$Variable <- gsub("agrempn","Agriculture and Natural Resources", City$Variable)
+
+###########
+######End Rename City Variables
+##########
+
+###########
+######End Rename City Variables
+##########
 
 # #Check Uniqueness
 # unique(SSA$Variable)
@@ -241,26 +282,26 @@ City$Category <- City$Concept
 
 #Update Category attributes
 #Demographics See url:https://abag.ca.gov/planning/research/forecasts.html for example
-# SSA$Category <- gsub("Employed Residents","Demographics",SSA$Category)
+SSA$Category <- gsub("Employed Residents","Demographics",SSA$Category)
 # City$Category <- gsub("Employed Residents","Demographics",City$Category)
 # PDA$Category <- gsub("Employed Residents","Demographics",PDA$Category)
 
 #Househ. by Inc. Quartile --> Income
-# SSA$Category <- gsub("Househ. by Inc. Quartile","Household Income",SSA$Category)
+SSA$Category <- gsub("Househ. by Inc. Quartile","Household Income",SSA$Category)
 # City$Category <- gsub("Househ. by Inc. Quartile","Household Income",City$Category)
 # PDA$Category <- gsub("Househ. by Inc. Quartile","Household Income",PDA$Category)
 
 #Population by Age --> Age Demographics
-# SSA$Category <- gsub("Population by Age","Population by Age",SSA$Category)
+SSA$Category <- gsub("Population by Age","Population by Age",SSA$Category)
 City$Category <- gsub("Population by Age","Population by Age",City$Category)
 # PDA$Category <- gsub("Population by Age","Population by Age",PDA$Category)
 
 #Population by Gender, Age --> Age Demographics
-# SSA$Category <- gsub("Population by Gender, Age","Population by Gender and Age",SSA$Category)
+SSA$Category <- gsub("Population by Gender, Age","Population by Gender and Age",SSA$Category)
 City$Category <- gsub("Population by Gender, Age","Population by Gender and Age",City$Category)
 # PDA$Category <- gsub("Population by Gender, Age","Population by Gender and Age",PDA$Category)
 
-#Units --> Housing UNits
+#Units --> Housing Units
 SSA$Category <- gsub("Units","Housing Units",SSA$Category)
 City$Category <- gsub("Units","Housing Units",City$Category)
 # PDA$Category <- gsub("Units","Housing Units",PDA$Category)
@@ -331,17 +372,10 @@ CatCity <- City %>%
   group_by(Category, Variable) %>%
   tally()
 
-#CatPDA <- PDA %>% 
-#  group_by(Category, Variable) %>%
-#  tally()
-
-
-
 #Export Tables for Socrata Upload
-setwd("~/Documents/GitHub/projections2040/Data")
 
+SSA <- read_csv(here("data/projectionsdata_SSA.csv"), col_types = cols(X1 = col_skip()))
 
-
-WriteXLS(City,"City Forecast.xls")
+WriteXLS(City,here("data/City Forecast.xls"))
 #WriteXLS(PDA,"PDA Forecast.xls")
-WriteXLS(SSA,"SSA Forecast.xls")
+WriteXLS(SSA,here("data/SSA Forecast.xls"))
