@@ -244,12 +244,10 @@ City$Variable <- gsub("sfdu","Single Family Dwelling Units", City$Variable)
 
 #Income
 #AO: deprecated
-#TB: this may be a dependency of the socrata/website setup
-#putting it back in for now
-City$Variable <- gsub("hhincq1","Household Income Less than $30k", City$Variable)
-City$Variable <- gsub("hhincq2","Household Income $30k to $59.9k", City$Variable)
-City$Variable <- gsub("hhincq3","Household Income $60k to $99.9k", City$Variable)
-City$Variable <- gsub("hhincq4","Household Income $100k and Above", City$Variable)
+# City$Variable <- gsub("hhincq1","Household Income Less than $30k", City$Variable)
+# City$Variable <- gsub("hhincq2","Household Income $30k to $59.9k", City$Variable)
+# City$Variable <- gsub("hhincq3","Household Income $60k to $99.9k", City$Variable)
+# City$Variable <- gsub("hhincq4","Household Income $100k and Above", City$Variable)
 
 #Jobs
 City$Variable <- gsub("othempn","Other", City$Variable)
