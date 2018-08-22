@@ -87,85 +87,50 @@ City$Variable <- gsub("agrempn","Agriculture and Natural Resources", City$Variab
 ######End Rename City Variables
 ##########
 
-###########
-######End Rename City Variables
-##########
-
-# #Check Uniqueness
-# unique(SSA$Variable)
-# unique(City$Variable)
-# unique(PDA$Variable)
-
-#Add Category Field using values from Concept
-SSA$Category <- SSA$Concept
 City$Category <- City$Concept
-# PDA$Category <- PDA$Concept
 
-
-
-#Update Category attributes
 #Demographics See url:https://abag.ca.gov/planning/research/forecasts.html for example
-SSA$Category <- gsub("Employed Residents","Demographics",SSA$Category)
-# City$Category <- gsub("Employed Residents","Demographics",City$Category)
-# PDA$Category <- gsub("Employed Residents","Demographics",PDA$Category)
+City$Category <- gsub("Employed Residents","Demographics",City$Category)
 
 #Househ. by Inc. Quartile --> Income
-SSA$Category <- gsub("Househ. by Inc. Quartile","Household Income",SSA$Category)
-# City$Category <- gsub("Househ. by Inc. Quartile","Household Income",City$Category)
-# PDA$Category <- gsub("Househ. by Inc. Quartile","Household Income",PDA$Category)
+City$Category <- gsub("Househ. by Inc. Quartile","Household Income",City$Category)
 
 #Population by Age --> Age Demographics
-SSA$Category <- gsub("Population by Age","Population by Age",SSA$Category)
 City$Category <- gsub("Population by Age","Population by Age",City$Category)
-# PDA$Category <- gsub("Population by Age","Population by Age",PDA$Category)
 
 #Population by Gender, Age --> Age Demographics
-SSA$Category <- gsub("Population by Gender, Age","Population by Gender and Age",SSA$Category)
 City$Category <- gsub("Population by Gender, Age","Population by Gender and Age",City$Category)
-# PDA$Category <- gsub("Population by Gender, Age","Population by Gender and Age",PDA$Category)
 
 #Units --> Housing Units
-SSA$Category <- gsub("Units","Housing Units",SSA$Category)
 City$Category <- gsub("Units","Housing Units",City$Category)
-# PDA$Category <- gsub("Units","Housing Units",PDA$Category)
 
 #Population --> Total Population
-SSA$Category <- gsub("Population","Total Population",SSA$Category)
 City$Category <- gsub("Population","Total Population",City$Category)
-# PDA$Category <- gsub("Population","Total Population",PDA$Category)
 
 #Jobs --> Total Jobs
-SSA$Category <- gsub("Jobs","Total Jobs",SSA$Category)
 City$Category <- gsub("Jobs","Total Jobs",City$Category)
-# PDA$Category <- gsub("Jobs","Total Jobs",PDA$Category)
 
-# SSA$Category <- gsub("Households","Households",SSA$Category)
-# City$Category <- gsub("Households","Households",City$Category)
-# PDA$Category <- gsub("Households","Households",PDA$Category)
+City$Category <- gsub("Households","Households",City$Category)
 
 #Fix source Values
 #modeled --> Modeled
-SSA$source <- gsub("modeled","Modeled",SSA$source)
 City$source <- gsub("modeled","Modeled",City$source)
-# PDA$source <- gsub("modeled","Modeled",PDA$source)
 
 #baseyear --> Base Year
-SSA$source <- gsub("baseyear","Base Year",SSA$source)
 City$source <- gsub("baseyear","Base Year",City$source)
-# PDA$source <- gsub("baseyear","Base Year",PDA$source)
 
 #estimate --> Estimate
-SSA$source <- gsub("estimate","Estimate",SSA$source)
 City$source <- gsub("estimate","Estimate",City$source)
-# PDA$source <- gsub("estimate","Estimate",PDA$source)
 
 #Check Values
 #unique(City$Category)
 
 #Round Values
-SSA$value <- round(SSA$value, digits = 0)
 City$value <- round(City$value, digits = 0)
-# PDA$value <- round(PDA$value, digits = 0)
+
+###########
+##Fix Sort Order
+###########
 
 #Fix Sort Order for County Jurisdictions
 SortOrderSSA <- SSA %>%
