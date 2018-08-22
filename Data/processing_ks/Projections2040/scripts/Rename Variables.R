@@ -13,148 +13,152 @@ library(here)
 ######Make City Variables Human readable
 ##########
 
-City <- read_csv(here("data/projectionsdata_juris.csv"), col_types = cols(X1 = col_skip()))
+City.socrata.existing <- read_csv("https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.csv")
+City.update.august.2018 <- read_csv(here("data/projectionsdata_juris.csv"), col_types = cols(X1 = col_skip()))
 
-#Population
-City$Variable <- gsub("gqpop","Population in Group Quarters", City$Variable)
-City$Variable <- gsub("hhpop","Household Population", City$Variable)
-City$Variable <- gsub("\\<age0004","Population Age Under 4", City$Variable)
-City$Variable <- gsub("\\<age0519","Population Age 5 thru 19", City$Variable)
-City$Variable <- gsub("\\<age2044","Population Age 20 thru 44", City$Variable)
-City$Variable <- gsub("\\<age4564","Population Age 45 thru 64", City$Variable)
-City$Variable <- gsub("\\<age65p","Population Age 65 and Over", City$Variable)
-#Female Age
-City$Variable <- gsub("Female_age0004","Female Population Age Under 4", City$Variable)
-City$Variable <- gsub("Female_age0509","Female Population Age 5 thru 9", City$Variable)
-City$Variable <- gsub("Female_age1014","Female Population Age 10 thru 14", City$Variable)
-City$Variable <- gsub("Female_age1519","Female Population Age 15 thru 19", City$Variable)
-City$Variable <- gsub("Female_age2024","Female Population Age 20 thru 24", City$Variable)
-City$Variable <- gsub("Female_age2529","Female Population Age 25 thru 29", City$Variable)
-City$Variable <- gsub("Female_age3034","Female Population Age 30 thru 34", City$Variable)
-City$Variable <- gsub("Female_age3539","Female Population Age 35 thru 39", City$Variable)
-City$Variable <- gsub("Female_age4044","Female Population Age 40 thru 44", City$Variable)
-City$Variable <- gsub("Female_age4549","Female Population Age 45 thru 49", City$Variable)
-City$Variable <- gsub("Female_age5054","Female Population Age 50 thru 54", City$Variable)
-City$Variable <- gsub("Female_age5559","Female Population Age 55 thru 59", City$Variable)
-City$Variable <- gsub("Female_age6064","Female Population Age 60 thru 64", City$Variable)
-City$Variable <- gsub("Female_age6569","Female Population Age 65 thru 69", City$Variable)
-City$Variable <- gsub("Female_age7074","Female Population Age 70 thru 74", City$Variable)
-City$Variable <- gsub("Female_age7579","Female Population Age 75 thru 79", City$Variable)
-City$Variable <- gsub("Female_age8084","Female Population Age 80 thru 84", City$Variable)
-City$Variable <- gsub("Female_age85p","Female Population Age 85 and Over", City$Variable)
-#Male Age
-City$Variable <- gsub("Male_age0004","Male Population Age Under 4", City$Variable)
-City$Variable <- gsub("Male_age0509","Male Population Age 5 thru 9", City$Variable)
-City$Variable <- gsub("Male_age1014","Male Population Age 10 thru 14", City$Variable)
-City$Variable <- gsub("Male_age1519","Male Population Age 15 thru 19", City$Variable)
-City$Variable <- gsub("Male_age2024","Male Population Age 20 thru 24", City$Variable)
-City$Variable <- gsub("Male_age2529","Male Population Age 25 thru 29", City$Variable)
-City$Variable <- gsub("Male_age3034","Male Population Age 30 thru 34", City$Variable)
-City$Variable <- gsub("Male_age3539","Male Population Age 35 thru 39", City$Variable)
-City$Variable <- gsub("Male_age4044","Male Population Age 40 thru 44", City$Variable)
-City$Variable <- gsub("Male_age4549","Male Population Age 45 thru 49", City$Variable)
-City$Variable <- gsub("Male_age5054","Male Population Age 50 thru 54", City$Variable)
-City$Variable <- gsub("Male_age5559","Male Population Age 55 thru 59", City$Variable)
-City$Variable <- gsub("Male_age6064","Male Population Age 60 thru 64", City$Variable)
-City$Variable <- gsub("Male_age6569","Male Population Age 65 thru 69", City$Variable)
-City$Variable <- gsub("Male_age7074","Male Population Age 70 thru 74", City$Variable)
-City$Variable <- gsub("Male_age7579","Male Population Age 75 thru 79", City$Variable)
-City$Variable <- gsub("Male_age8084","Male Population Age 80 thru 84", City$Variable)
-City$Variable <- gsub("Male_age85p","Male Population Age 85 and Over", City$Variable)
+City.socrata.existing <- City.socrata.existing %>% 
+  arrange(category,county,juris,year,variable)
+#the existing file has a bunch of vaues of 0 for Base Year B year 2040
+#we'll need to check on whether this is something in the script 
 
-#Households
-City$Variable <- gsub("tothh","Total Households", City$Variable)
-City$Variable <- gsub("mfdu","Multifamily Dwelling Units", City$Variable)
-City$Variable <- gsub("sfdu","Single Family Dwelling Units", City$Variable)
+# for comparison after all the changes below. 
+City.backup <- City.update.august.2018
 
-#Income
-#AO: deprecated
-# City$Variable <- gsub("hhincq1","Household Income Less than $30k", City$Variable)
-# City$Variable <- gsub("hhincq2","Household Income $30k to $59.9k", City$Variable)
-# City$Variable <- gsub("hhincq3","Household Income $60k to $99.9k", City$Variable)
-# City$Variable <- gsub("hhincq4","Household Income $100k and Above", City$Variable)
-
-#Jobs
-City$Variable <- gsub("othempn","Other", City$Variable)
-City$Variable <- gsub("empres","Employed Residents", City$Variable)
-City$Variable <- gsub("fpsempn","Finance and Professional Services", City$Variable)
-City$Variable <- gsub("herempn","Health and Educational Services", City$Variable)
-City$Variable <- gsub("mwtempn","Manufacturing and Wholesale", City$Variable)
-City$Variable <- gsub("retempn","Retail", City$Variable)
-City$Variable <- gsub("agrempn","Agriculture and Natural Resources", City$Variable)
+###########
+######Rename City Variables
+##########
+City.update.august.2018$Variable <- City.update.august.2018$Variable %>%
+  gsub("gqpop","Population in Group Quarters",.) %>%
+  gsub("hhpop","Household Population",.) %>%
+  gsub("\\<age0004","Population Age Under 4",.) %>%
+  gsub("\\<age0519","Population Age 5 thru 19",.) %>%
+  gsub("\\<age2044","Population Age 20 thru 44",.) %>%
+  gsub("\\<age4564","Population Age 45 thru 64",.) %>%
+  gsub("\\<age65p","Population Age 65 and Over",.) %>%
+  #Female Age
+  gsub("Female_age0004","Female Population Age Under 4",.) %>%
+  gsub("Female_age0509","Female Population Age 5 thru 9",.) %>%
+  gsub("Female_age1014","Female Population Age 10 thru 14",.) %>%
+  gsub("Female_age1519","Female Population Age 15 thru 19",.) %>%
+  gsub("Female_age2024","Female Population Age 20 thru 24",.) %>%
+  gsub("Female_age2529","Female Population Age 25 thru 29",.) %>%
+  gsub("Female_age3034","Female Population Age 30 thru 34",.) %>%
+  gsub("Female_age3539","Female Population Age 35 thru 39",.) %>%
+  gsub("Female_age4044","Female Population Age 40 thru 44",.) %>%
+  gsub("Female_age4549","Female Population Age 45 thru 49",.) %>%
+  gsub("Female_age5054","Female Population Age 50 thru 54",.) %>%
+  gsub("Female_age5559","Female Population Age 55 thru 59",.) %>%
+  gsub("Female_age6064","Female Population Age 60 thru 64",.) %>%
+  gsub("Female_age6569","Female Population Age 65 thru 69",.) %>%
+  gsub("Female_age7074","Female Population Age 70 thru 74",.) %>%
+  gsub("Female_age7579","Female Population Age 75 thru 79",.) %>%
+  gsub("Female_age8084","Female Population Age 80 thru 84",.) %>%
+  gsub("Female_age85p","Female Population Age 85 and Over",.) %>%
+  #Male Age 
+  gsub("Male_age0004","Male Population Age Under 4",.) %>%
+  gsub("Male_age0509","Male Population Age 5 thru 9",.) %>%
+  gsub("Male_age1014","Male Population Age 10 thru 14",.) %>%
+  gsub("Male_age1519","Male Population Age 15 thru 19",.) %>%
+  gsub("Male_age2024","Male Population Age 20 thru 24",.) %>%
+  gsub("Male_age2529","Male Population Age 25 thru 29",.) %>%
+  gsub("Male_age3034","Male Population Age 30 thru 34",.) %>%
+  gsub("Male_age3539","Male Population Age 35 thru 39",.) %>%
+  gsub("Male_age4044","Male Population Age 40 thru 44",.) %>%
+  gsub("Male_age4549","Male Population Age 45 thru 49",.) %>%
+  gsub("Male_age5054","Male Population Age 50 thru 54",.) %>%
+  gsub("Male_age5559","Male Population Age 55 thru 59",.) %>%
+  gsub("Male_age6064","Male Population Age 60 thru 64",.) %>%
+  gsub("Male_age6569","Male Population Age 65 thru 69",.) %>%
+  gsub("Male_age7074","Male Population Age 70 thru 74",.) %>%
+  gsub("Male_age7579","Male Population Age 75 thru 79",.) %>%
+  gsub("Male_age8084","Male Population Age 80 thru 84",.) %>%
+  gsub("Male_age85p","Male Population Age 85 and Over",.) %>%
+  #Households
+  gsub("tothh","Total Households",.) %>%
+  gsub("mfdu","Multifamily Dwelling Units",.) %>%
+  gsub("sfdu","Single Family Dwelling Units",.) %>%
+  #Jobs 
+  gsub("othempn","Other",.) %>%
+  gsub("empres","Employed Residents",.) %>%
+  gsub("fpsempn","Finance and Professional Services",.) %>%
+  gsub("herempn","Health and Educational Services",.) %>%
+  gsub("mwtempn","Manufacturing and Wholesale",.) %>%
+  gsub("retempn","Retail",.) %>%
+  gsub("agrempn","Agriculture and Natural Resources",.)
 
 ###########
 ######End Rename City Variables
 ##########
 
-City$Category <- City$Concept
+#rename concept to category
+City.update.august.2018 <- rename(City.update.august.2018,
+                                  Category=Concept)
 
-#Demographics See url:https://abag.ca.gov/planning/research/forecasts.html for example
-City$Category <- gsub("Employed Residents","Demographics",City$Category)
-
-#Househ. by Inc. Quartile --> Income
-City$Category <- gsub("Househ. by Inc. Quartile","Household Income",City$Category)
-
-#Population by Age --> Age Demographics
-City$Category <- gsub("Population by Age","Population by Age",City$Category)
-
-#Population by Gender, Age --> Age Demographics
-City$Category <- gsub("Population by Gender, Age","Population by Gender and Age",City$Category)
-
-#Units --> Housing Units
-City$Category <- gsub("Units","Housing Units",City$Category)
-
-#Population --> Total Population
-City$Category <- gsub("Population","Total Population",City$Category)
-
-#Jobs --> Total Jobs
-City$Category <- gsub("Jobs","Total Jobs",City$Category)
-
-City$Category <- gsub("Households","Households",City$Category)
+#Demographics 
+#See url:https://abag.ca.gov/planning/research/forecasts.html for example
+City.update.august.2018$Category <- City.update.august.2018$Variable %>%
+  gsub("Employed Residents","Demographics",.) %>%
+  #Househ. by Inc. Quartile --> Income
+  gsub("Househ. by Inc. Quartile","Household Income",.) %>%
+  #Population by Age --> Age Demographics
+  gsub("Population by Age","Population by Age",.) %>%
+  #Population by Gender, Age --> Age Demographics
+  gsub("Population by Gender, Age","Population by Gender and Age",.) %>%
+  #Units --> Housing Units
+  gsub("Units","Housing Units",.) %>%
+  #Population --> Total Population
+  gsub("Population","Total Population",.) %>%
+  #Jobs --> Total Jobs
+  gsub("Jobs","Total Jobs",.) %>%
+  gsub("Households","Households",.)
 
 #Fix source Values
 #modeled --> Modeled
-City$source <- gsub("modeled","Modeled",City$source)
-
-#baseyear --> Base Year
-City$source <- gsub("baseyear","Base Year",City$source)
-
-#estimate --> Estimate
-City$source <- gsub("estimate","Estimate",City$source)
+City.update.august.2018$source <- City.update.august.2018$source %>%
+  gsub("modeled","Modeled",.) %>%
+  #baseyear --> Base Year
+  gsub("baseyear","Base Year",.) %>%
+  #estimate --> Estimate
+  gsub("estimate","Estimate",.)
 
 #Check Values
-#unique(City$Category)
+#unique(Category)
 
 #Round Values
-City$value <- round(City$value, digits = 0)
+City.update.august.2018$value <- round(City.update.august.2018$value, digits = 2)
+
+#per @akselx's commits at https://github.com/BayAreaMetro/projections2040/commit/4f73a78fa13ca2d1995b6116e4b648c199098ad8,
+#we remove household income quartiles from the outputs. 
+City <- filter(City,!Variable %in% 
+                 c("hhincq1","hhincq2","hhincq3","hhincq4"))
 
 ###########
 ##Fix Sort Order
 ###########
 
 #Fix Sort Order for County Jurisdictions
-SortOrderSSA <- SSA %>%
-  group_by(county, SSA) %>%
-  tally() %>%
-  mutate(RecID = 1:n())
+# SortOrderSSA <- SSA %>%
+#   group_by(county, SSA) %>%
+#   tally() %>%
+#   mutate(RecID = 1:n())
 SortOrderCity <- City %>%
   group_by(county, juris) %>%
   tally() %>%
   mutate(RecID = 1:n())
 #setwd("~/Documents/GitHub/projections2040/Data")
-WriteXLS(SortOrderSSA, "SSA_List.xls")
+#WriteXLS(SortOrderSSA, "SSA_List.xls")
 WriteXLS(SortOrderCity, "City_List.xls")
-rm(SortOrderSSA)
-# Adds Sort Field (RecID)
-SSA <- merge(SSA, SortOrderSSA)
+#rm(SortOrderSSA)
+#Adds Sort Field (RecID)
+#SSA <- merge(SSA, SortOrderSSA)
 City <- merge(City, SortOrderCity)
 
 #Check Unique Categories
-unique(SSA$Category)
+#unique(SSA$Category)
 
-CatSSA <- SSA %>% 
-  group_by(Category, Variable) %>%
-  tally()
+# CatSSA <- SSA %>% 
+#   group_by(Category, Variable) %>%
+#   tally()
 
 CatCity <- City %>% 
   group_by(Category, Variable) %>%
@@ -162,8 +166,8 @@ CatCity <- City %>%
 
 #Export Tables for Socrata Upload
 
-SSA <- read_csv(here("data/projectionsdata_SSA.csv"), col_types = cols(X1 = col_skip()))
+#SSA <- read_csv(here("data/projectionsdata_SSA.csv"), col_types = cols(X1 = col_skip()))
 
 WriteXLS(City,here("data/City Forecast.xls"))
 #WriteXLS(PDA,"PDA Forecast.xls")
-WriteXLS(SSA,here("data/SSA Forecast.xls"))
+#WriteXLS(SSA,here("data/SSA Forecast.xls"))
