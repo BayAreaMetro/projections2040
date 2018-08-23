@@ -12,7 +12,7 @@ library(here)
 ##########
 
 City.socrata.existing <- read_csv("https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.csv")
-City.update.august.2018 <- read_csv(here("data/projectionsdata_juris.csv"), col_types = cols(X1 = col_skip()))
+City.update.august.2018 <- read_csv(here("projectionsdata_juris.csv"), col_types = cols(X1 = col_skip()))
 
 City.socrata.existing <- City.socrata.existing %>% 
   arrange(category,county,juris,year,variable)
@@ -154,4 +154,4 @@ City.update.august.2018 <- rename(City.update.august.2018,
                                   Sort_Order='Sort Order')
 
 #Export Tables for Socrata Upload
-WriteXLS(City.update.august.2018,here("data/City Forecast.xls"))
+WriteXLS(City.update.august.2018,here("City Forecast.xls"))
