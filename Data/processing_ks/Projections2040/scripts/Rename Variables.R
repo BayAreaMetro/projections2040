@@ -86,10 +86,6 @@ City.update.august.2018$Variable <- City.update.august.2018$Variable %>%
   gsub("retempn","Retail",.) %>%
   gsub("agrempn","Agriculture and Natural Resources",.)
 
-###########
-######End Rename City Variables
-##########
-
 #rename concept to category
 City.update.august.2018 <- rename(City.update.august.2018,
                                   Category=Concept)
@@ -129,45 +125,19 @@ City.update.august.2018$value <- round(City.update.august.2018$value, digits = 2
 
 #per @akselx's commits at https://github.com/BayAreaMetro/projections2040/commit/4f73a78fa13ca2d1995b6116e4b648c199098ad8,
 #we remove household income quartiles from the outputs. 
-City <- filter(City,!Variable %in% 
+City.update.august.2018 <- filter(City.update.august.2018,!Variable %in% 
                  c("hhincq1","hhincq2","hhincq3","hhincq4"))
 
-###########
-##Fix Sort Order
-###########
-
-#Fix Sort Order for County Jurisdictions
-# SortOrderSSA <- SSA %>%
-#   group_by(county, SSA) %>%
-#   tally() %>%
-#   mutate(RecID = 1:n())
-SortOrderCity <- City %>%
+##Order by City and County, then add a unique id for this ordering
+##Also, add a count of the number of variables per city. 
+SortOrderCity <- City.update.august.2018 %>%
   group_by(county, juris) %>%
   tally() %>%
   mutate(RecID = 1:n())
-#setwd("~/Documents/GitHub/projections2040/Data")
-#WriteXLS(SortOrderSSA, "SSA_List.xls")
-WriteXLS(SortOrderCity, "City_List.xls")
-#rm(SortOrderSSA)
-#Adds Sort Field (RecID)
-#SSA <- merge(SSA, SortOrderSSA)
-City <- merge(City, SortOrderCity)
 
-#Check Unique Categories
-#unique(SSA$Category)
-
-# CatSSA <- SSA %>% 
-#   group_by(Category, Variable) %>%
-#   tally()
-
-CatCity <- City %>% 
-  group_by(Category, Variable) %>%
-  tally()
+#Now, join the count and the unique 
+#city/county id back to the variables 
+City <- merge(City.update.august.2018, SortOrderCity)
 
 #Export Tables for Socrata Upload
-
-#SSA <- read_csv(here("data/projectionsdata_SSA.csv"), col_types = cols(X1 = col_skip()))
-
 WriteXLS(City,here("data/City Forecast.xls"))
-#WriteXLS(PDA,"PDA Forecast.xls")
-#WriteXLS(SSA,here("data/SSA Forecast.xls"))
