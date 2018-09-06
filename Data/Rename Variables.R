@@ -92,8 +92,6 @@ City.update.august.2018 <- rename(City.update.august.2018,
 #See url:https://abag.ca.gov/planning/research/forecasts.html for example
 City.update.august.2018$Category <- City.update.august.2018$Variable %>%
   gsub("Employed Residents","Demographics",.) %>%
-  #Househ. by Inc. Quartile --> Income
-  gsub("Househ. by Inc. Quartile","Household Income",.) %>%
   #Population by Age --> Age Demographics
   gsub("Population by Age","Population by Age",.) %>%
   #Population by Gender, Age --> Age Demographics
@@ -105,6 +103,7 @@ City.update.august.2018$Category <- City.update.august.2018$Variable %>%
   #Jobs --> Total Jobs
   gsub("Jobs","Total Jobs",.) %>%
   gsub("Households","Households",.)
+
 
 #Fix source Values
 #modeled --> Modeled
