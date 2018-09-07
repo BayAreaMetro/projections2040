@@ -24,12 +24,12 @@ export class DataComponent {
         //Set Filter Control Selection Values
         this.dataGroup = 'Households';
         this.countyName = 'Alameda';
-        this.geographyName = 'ssa';
+        this.geographyName = 'Juris';
         this.variableName = 'Total Households';
         this.currentName = 'Total Households';
 
         //Get Data for Category and Variable combo
-        this.$http.get('https://open-data-demo.mtc.ca.gov/resource/5tik-mgwp.json?$select=category,variable&$group=category,variable&$order=category,variable')
+        this.$http.get('https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.json?$select=category,variable&$group=category,variable&$order=category,variable')
             .then(response => {
                 //console.log(response.data);
                 this.variableStore = response.data;
