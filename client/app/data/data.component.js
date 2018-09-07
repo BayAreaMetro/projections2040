@@ -43,7 +43,8 @@ export class DataComponent {
             //Uses where clause Instead
             //https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.json?$where=category=%27Total%20Jobs%27%20AND%20variable=%27Other%27%20AND%20county=%27Alameda%27%20AND%20source=%27Estimate%27%20OR%20source=%27Modeled%27%20OR%20source=%27Base%20Year%20B%27
             //this.$http.get('https://open-data-demo.mtc.ca.gov/resource/5tik-mgwp.json?category=' + category + '&variable=' + variable + '&county=' + county)
-        this.$http.get("https://open-data-demo.mtc.ca.gov/resource/5tik-mgwp.json?$where=category=" + "'" + category + "'" + " AND variable=" + "'" + variable + "'" + " AND county=" + "'" + county + "'" + " AND source <>'Base Year A'")
+            //https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.json
+        this.$http.get("https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.json?$where=category=" + "'" + category + "'" + " AND variable=" + "'" + variable + "'" + " AND county=" + "'" + county + "'" + " AND source <>'Base Year A'")
             .then(response => {
                 console.log(response.data[0]);
                 this.dataGroup = response.data[0].category;
@@ -51,7 +52,7 @@ export class DataComponent {
                 var responseData = response.data;
 
                 //Get list of unique SSAs
-                var uniqueNames = _.orderBy(_.uniq(_.map(responseData, 'ssa')));
+                var uniqueNames = _.orderBy(_.uniq(_.map(responseData, 'jurisdiction')));
                 var uniqueVariables = _.map(responseData, 'variable');
 
                 // console.log(uniqueNames);
