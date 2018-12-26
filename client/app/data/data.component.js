@@ -24,12 +24,15 @@ export class DataComponent {
         //Set Filter Control Selection Values
         this.dataGroup = 'Households';
         this.countyName = 'Alameda';
-        this.geographyName = 'Juris';
+        this.geographyName = 'Jurisdiction';
         this.variableName = 'Total Households';
         this.currentName = 'Total Households';
 
         //Get Data for Category and Variable combo
-        this.$http.get('https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.json?$select=category,variable&$group=category,variable&$order=category,variable')
+        //https://open-data-demo.mtc.ca.gov/resource/nhbf-ixt8.json -- New Dataset for Jurisdiction Only
+        //https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.json?$select=category,variable&$group=category,variable&$order=category,variable -- Old Dataset that contained SSAs and Jurisdictions
+        //https://mtc.data.socrata.com/resource/grqz-amra.json -- New Dataset on New SCGC Platform
+        this.$http.get('https://mtc.data.socrata.com/resource/grqz-amra.json?$select=category,variable&$group=category,variable&$order=category,variable')
             .then(response => {
                 //console.log(response.data);
                 this.variableStore = response.data;
@@ -41,10 +44,10 @@ export class DataComponent {
             })
             //Build Data Table Store from Initial Filter
             //Uses where clause Instead
-            //https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.json?$where=category=%27Total%20Jobs%27%20AND%20variable=%27Other%27%20AND%20county=%27Alameda%27%20AND%20source=%27Estimate%27%20OR%20source=%27Modeled%27%20OR%20source=%27Base%20Year%20B%27
-            //this.$http.get('https://open-data-demo.mtc.ca.gov/resource/5tik-mgwp.json?category=' + category + '&variable=' + variable + '&county=' + county)
-            //https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.json
-        this.$http.get("https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.json?$where=category=" + "'" + category + "'" + " AND variable=" + "'" + variable + "'" + " AND county=" + "'" + county + "'" + " AND source <>'Base Year A'")
+            //https://open-data-demo.mtc.ca.gov/resource/nhbf-ixt8.json?$where=category=%27Total%20Jobs%27%20AND%20variable=%27Other%27%20AND%20county=%27Alameda%27%20AND%20source=%27Estimate%27%20OR%20source=%27Modeled%27%20OR%20source=%27Base%20Year%20B%27
+            //this.$http.get('https://open-data-demo.mtc.ca.gov/resource/nhbf-ixt8.json?category=' + category + '&variable=' + variable + '&county=' + county)
+            //https://open-data-demo.mtc.ca.gov/resource/nhbf-ixt8.json
+        this.$http.get("https://mtc.data.socrata.com/resource/grqz-amra.json?$where=category=" + "'" + category + "'" + " AND variable=" + "'" + variable + "'" + " AND county=" + "'" + county + "'" + " AND source <>'Base Year A'")
             .then(response => {
                 console.log(response.data[0]);
                 this.dataGroup = response.data[0].category;
@@ -80,9 +83,10 @@ export class DataComponent {
 
                 // Calculate county totals
                 var countyTotal = {};
-                var year2005, year2015, year2020, year2025, year2030, year2035, year2040;
+                //var year2005, year2015, year2020, year2025, year2030, year2035, year2040; --Removed Year 2005 from base set
+                var year2010, year2015, year2020, year2025, year2030, year2035, year2040;
                 countyTotal.name = county;
-                countyTotal[2005] = _.sumBy(finalData, 2005);
+                //countyTotal[2005] = _.sumBy(finalData, 2005);
                 countyTotal[2010] = _.sumBy(finalData, 2010);
                 countyTotal[2015] = _.sumBy(finalData, 2015);
                 countyTotal[2020] = _.sumBy(finalData, 2020);
@@ -112,12 +116,12 @@ export class DataComponent {
         //console.log(category)
 
         if (geography === 'jurisdiction') {
-            apiURL = 'https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.json';
+            apiURL = 'https://mtc.data.socrata.com/resource/grqz-amra.json';
         } else
         if (geography === 'ssa') {
-            apiURL = 'https://open-data-demo.mtc.ca.gov/resource/5tik-mgwp.json';
+            apiURL = 'https://mtc.data.socrata.com/resource/grqz-amra.json';
         } else if (geography === 'pda') {
-            apiURL = 'https://open-data-demo.mtc.ca.gov/resource/bt2d-fhg7.json';
+            apiURL = 'https://mtc.data.socrata.com/resource/grqz-amra.json';
         }
         //console.log('running');
         //console.log(apiURL + '?category=' + category + '&variable=' + variable + '&county=' + county);
@@ -176,9 +180,9 @@ export class DataComponent {
 
                 // Calculate county totals
                 var countyTotal = {};
-                var year2005, year2015, year2020, year2025, year2030, year2035, year2040;
+                var year2010, year2015, year2020, year2025, year2030, year2035, year2040;
                 countyTotal.name = county;
-                countyTotal[2005] = _.sumBy(finalData, 2005);
+                //countyTotal[2005] = _.sumBy(finalData, 2005);
                 countyTotal[2010] = _.sumBy(finalData, 2010);
                 countyTotal[2015] = _.sumBy(finalData, 2015);
                 countyTotal[2020] = _.sumBy(finalData, 2020);
