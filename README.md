@@ -8,6 +8,7 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 
 - [Git](https://git-scm.com/)
 - [Node.js and npm](nodejs.org) Node >= 4.x.x, npm >= 2.x.x
+- If you are using a different version of Node and NPM you will need to upgrade/downgrade to this version using the following commands. 
 - [Gulp](http://gulpjs.com/) (`npm install --global gulp`)
 
 ### Developing
