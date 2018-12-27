@@ -28,7 +28,7 @@ export class MainController {
 
 
             function initViz() {
-
+            //https://public.tableau.com/views/Demographics_37/ChartView?:showVizHome=no
                 var vizDiv = document.getElementById("vizContainer"),
                     chartURL = "https://public.tableau.com/views/Demographics_37/ChartView?:showVizHome=no",
                     options = {
