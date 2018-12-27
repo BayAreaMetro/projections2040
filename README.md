@@ -8,7 +8,7 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 
 - [Git](https://git-scm.com/)
 - [Node.js and npm](nodejs.org) Node >= 4.x.x, npm >= 2.x.x
-- If you are using a different version of Node and NPM you will need to upgrade/downgrade to this version using the following commands:
+- If you are using a different version of Node and NPM you will need to upgrade/downgrade to this version using the following commands:  
 sudo npm cache clean -f  
 sudo npm install -g n  
 sudo n 4.4.2  
