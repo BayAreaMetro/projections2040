@@ -58,7 +58,7 @@ export class DataComponent {
                 var uniqueNames = _.orderBy(_.uniq(_.map(responseData, 'jurisdiction')));
                 var uniqueVariables = _.map(responseData, 'variable');
 
-                // console.log(uniqueNames);
+                console.log(uniqueNames);
 
                 var finalData = []; //Array for collecting all the SSA data by year for given variable type
                 var geoByYear = {}; //Object containing an individual SSA and the yearly values for given variable
@@ -136,10 +136,9 @@ export class DataComponent {
                 //console.log(this.variableDataStore);
                 var uniqueNames = [];
 
-                if (geography === 'ssa') {
-                    uniqueNames = _.orderBy(_.uniq(_.map(responseData, 'ssa')));
-                } else if (geography === 'jurisdiction') {
-                    uniqueNames = _.orderBy(_.uniq(_.map(responseData, 'juris')));
+                if (geography === 'jurisdiction') {
+                    uniqueNames = _.orderBy(_.uniq(_.map(responseData, 'jurisdiction')));
+                    console.log(uniqueNames);
                 }
 
 
@@ -164,7 +163,7 @@ export class DataComponent {
                         }
                     } else if (geography === 'jurisdiction') {
                         for (const key in responseData) {
-                            if (responseData[key].juris === element) {
+                            if (responseData[key].jurisdiction === element) {
                                 var year = responseData[key].year;
                                 var sort = 'sortOrder';
                                 geoByYear[year] = Math.round(responseData[key].value);
