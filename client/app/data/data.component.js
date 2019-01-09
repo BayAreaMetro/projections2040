@@ -24,7 +24,7 @@ export class DataComponent {
         //Set Filter Control Selection Values
         this.dataGroup = 'Households';
         this.countyName = 'Alameda';
-        this.geographyName = 'Jurisdiction';
+        this.geographyName = 'jurisdiction';
         this.variableName = 'Total Households';
         this.currentName = 'Total Households';
 
@@ -101,14 +101,14 @@ export class DataComponent {
                 this.updateVariableList();
 
             });
-
+        this.updateTable();
     }
 
     updateTable() {
         var county = this.countyName;
         var category = this.dataGroup;
         var variable = this.variableName;
-        var geography = this.geographyName;
+        var geography = 'jurisdiction';
         var apiURL;
         this.currentName = this.variableName;
         //console.log(geography);
