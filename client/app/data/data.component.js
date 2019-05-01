@@ -31,8 +31,8 @@ export class DataComponent {
         //Get Data for Category and Variable combo
         //https://open-data-demo.mtc.ca.gov/resource/nhbf-ixt8.json -- New Dataset for Jurisdiction Only
         //https://open-data-demo.mtc.ca.gov/resource/pcwa-vbwz.json?$select=category,variable&$group=category,variable&$order=category,variable -- Old Dataset that contained SSAs and Jurisdictions
-        //https://mtc.data.socrata.com/resource/grqz-amra.json -- New Dataset on New SCGC Platform
-        this.$http.get('https://mtc.data.socrata.com/resource/grqz-amra.json?$select=category,variable&$group=category,variable&$order=category,variable')
+        //https://data.bayareametro.gov/resource/grqz-amra.json -- New Dataset on New SCGC Platform
+        this.$http.get('https://data.bayareametro.gov/resource/grqz-amra.json?$select=category,variable&$group=category,variable&$order=category,variable')
             .then(response => {
                 //console.log(response.data);
                 this.variableStore = response.data;
@@ -47,7 +47,7 @@ export class DataComponent {
             //https://open-data-demo.mtc.ca.gov/resource/nhbf-ixt8.json?$where=category=%27Total%20Jobs%27%20AND%20variable=%27Other%27%20AND%20county=%27Alameda%27%20AND%20source=%27Estimate%27%20OR%20source=%27Modeled%27%20OR%20source=%27Base%20Year%20B%27
             //this.$http.get('https://open-data-demo.mtc.ca.gov/resource/nhbf-ixt8.json?category=' + category + '&variable=' + variable + '&county=' + county)
             //https://open-data-demo.mtc.ca.gov/resource/nhbf-ixt8.json
-        this.$http.get("https://mtc.data.socrata.com/resource/grqz-amra.json?$where=category=" + "'" + category + "'" + " AND variable=" + "'" + variable + "'" + " AND county=" + "'" + county + "'" + " AND source <>'Base Year A'")
+        this.$http.get("https://data.bayareametro.gov/resource/grqz-amra.json?$where=category=" + "'" + category + "'" + " AND variable=" + "'" + variable + "'" + " AND county=" + "'" + county + "'" + " AND source <>'Base Year A'")
             .then(response => {
                 console.log(response.data[0]);
                 this.dataGroup = response.data[0].category;
@@ -116,12 +116,12 @@ export class DataComponent {
         //console.log(category)
 
         if (geography === 'jurisdiction') {
-            apiURL = 'https://mtc.data.socrata.com/resource/grqz-amra.json';
+            apiURL = 'https://data.bayareametro.gov/resource/grqz-amra.json';
         } else
         if (geography === 'ssa') {
-            apiURL = 'https://mtc.data.socrata.com/resource/grqz-amra.json';
+            apiURL = 'https://data.bayareametro.gov/resource/grqz-amra.json';
         } else if (geography === 'pda') {
-            apiURL = 'https://mtc.data.socrata.com/resource/grqz-amra.json';
+            apiURL = 'https://data.bayareametro.gov/resource/grqz-amra.json';
         }
         //console.log('running');
         //console.log(apiURL + '?category=' + category + '&variable=' + variable + '&county=' + county);
@@ -137,7 +137,7 @@ export class DataComponent {
                 var uniqueNames = [];
 
                 if (geography === 'jurisdiction') {
-                    uniqueNames = _.orderBy(_.uniq(_.map(responseData, 'jurisdiction')));
+                    uniqueNames = _.orderBy(_.uniq(_.map(responseData, 'sort_order')));
                     console.log(uniqueNames);
                 }
 
