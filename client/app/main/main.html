@@ -88,7 +88,7 @@
             <div class="col-lg-12 mx-auto">
                 <!-- Tableau Viz -->
                 <div id="vizContainer" style="width:100%; height:auto;"></div>
-                <small>Developer Note: This feature is exploratory. May not be implemented in this fashion.</small>
+                <!-- <small>Developer Note: This feature is exploratory. May not be implemented in this fashion.</small> -->
             </div>
         </div>
         <!-- Data Table will go here... -->
@@ -96,6 +96,600 @@
             <div class="col-lg-12 mx-auto">
                 <h4 class="ma-bottom-20">Regional Projections</h4>
                 <div id="dataContainer" style="width:100%; height:auto;"></div>
+                <div id="forecastTable" style="width:100%; height:auto;">
+                    <table class="minimalistBlack">
+                        <thead>
+                      <tr text-align="right">
+                                <td rowspan="1" width="230">
+                                    <p><strong>&nbsp;</strong></p>
+                                    <p><strong>&nbsp;</strong></p>
+                                </td>
+                                <td colspan="2" width="173">
+                                    <p><strong>Public Data Estimates</strong></p>
+                                </td>
+                                <td colspan="7" width="605">
+                                    <p><strong>Plan Bay Area Model Estimates</strong></p>
+                                </td>
+                            </tr>
+                      </thead>
+                        <tbody>
+                             <tr text-align="right">
+                              <td>
+                                <td width="86">
+                                    <p>2010</p>
+                                </td>
+                                <td width="86">
+                                    <p>2015</p>
+                                </td>
+                                <td width="86">
+                                    <p>2010</p>
+                                </td>
+                                <td width="86">
+                                    <p>2015</p>
+                                </td>
+                                <td width="86">
+                                    <p>2020</p>
+                                </td>
+                                <td width="86">
+                                    <p>2025</p>
+                                </td>
+                                <td width="86">
+                                    <p>2030</p>
+                                </td>
+                                <td width="86">
+                                    <p>2035</p>
+                                </td>
+                                <td width="86">
+                                    <p>2040</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Population</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>7,150,740</p>
+                                </td>
+                                <td width="86">
+                                    <p>7,573,915</p>
+                                </td>
+                                <td width="86">
+                                    <p>7,174,920</p>
+                                </td>
+                                <td width="86">
+                                    <p>7,591,490</p>
+                                </td>
+                                <td width="86">
+                                    <p>7,920,230</p>
+                                </td>
+                                <td width="86">
+                                    <p>8,284,200</p>
+                                </td>
+                                <td width="86">
+                                    <p>8,689,440</p>
+                                </td>
+                                <td width="86">
+                                    <p>9,142,745</p>
+                                </td>
+                                <td width="86">
+                                    <p>9,652,950</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Household Population</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>6,998,465</p>
+                                </td>
+                                <td width="86">
+                                    <p>7,423,305</p>
+                                </td>
+                                <td width="86">
+                                    <p>7,029,350</p>
+                                </td>
+                                <td width="86">
+                                    <p>7,438,280</p>
+                                </td>
+                                <td width="86">
+                                    <p>7,758,540</p>
+                                </td>
+                                <td width="86">
+                                    <p>8,113,640</p>
+                                </td>
+                                <td width="86">
+                                    <p>8,509,245</p>
+                                </td>
+                                <td width="86">
+                                    <p>8,952,495</p>
+                                </td>
+                                <td width="86">
+                                    <p>9,451,375</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Households</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>2,606,290</p>
+                                </td>
+                                <td width="86">
+                                    <p>2,678,810</p>
+                                </td>
+                                <td width="86">
+                                    <p>2,608,025</p>
+                                </td>
+                                <td width="86">
+                                    <p>2,760,480</p>
+                                </td>
+                                <td width="86">
+                                    <p>2,881,965</p>
+                                </td>
+                                <td width="86">
+                                    <p>3,009,055</p>
+                                </td>
+                                <td width="86">
+                                    <p>3,142,015</p>
+                                </td>
+                                <td width="86">
+                                    <p>3,281,130</p>
+                                </td>
+                                <td width="86">
+                                    <p>3,426,700</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Persons per Household</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>2.69</p>
+                                </td>
+                                <td width="86">
+                                    <p>2.77</p>
+                                </td>
+                                <td width="86">
+                                    <p>2.70</p>
+                                </td>
+                                <td width="86">
+                                    <p>2.69</p>
+                                </td>
+                                <td width="86">
+                                    <p>2.69</p>
+                                </td>
+                                <td width="86">
+                                    <p>2.70</p>
+                                </td>
+                                <td width="86">
+                                    <p>2.71</p>
+                                </td>
+                                <td width="86">
+                                    <p>2.73</p>
+                                </td>
+                                <td width="86">
+                                    <p>2.76</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Employed Residents</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>3,506,680</p>
+                                </td>
+                                <td width="86">
+                                    <p>3,894,850</p>
+                                </td>
+                                <td width="86">
+                                    <p>3,376,380</p>
+                                </td>
+                                <td width="86">
+                                    <p>4,026,995</p>
+                                </td>
+                                <td width="86">
+                                    <p>4,147,000</p>
+                                </td>
+                                <td width="86">
+                                    <p>4,270,595</p>
+                                </td>
+                                <td width="86">
+                                    <p>4,397,865</p>
+                                </td>
+                                <td width="86">
+                                    <p>4,528,925</p>
+                                </td>
+                                <td width="86">
+                                    <p>4,663,900</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Agriculture &amp; Natural Resources</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>17,775</p>
+                                </td>
+                                <td width="86">
+                                    <p>18,905</p>
+                                </td>
+                                <td width="86">
+                                    <p>22,800</p>
+                                </td>
+                                <td width="86">
+                                    <p>24,990</p>
+                                </td>
+                                <td width="86">
+                                    <p>24,865</p>
+                                </td>
+                                <td width="86">
+                                    <p>24,740</p>
+                                </td>
+                                <td width="86">
+                                    <p>24,620</p>
+                                </td>
+                                <td width="86">
+                                    <p>24,500</p>
+                                </td>
+                                <td width="86">
+                                    <p>24,380</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Construction</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>158,235</p>
+                                </td>
+                                <td width="86">
+                                    <p>208,230</p>
+                                </td>
+                                <td width="86">
+                                    <p>165,115</p>
+                                </td>
+                                <td width="86">
+                                    <p>214,970</p>
+                                </td>
+                                <td width="86">
+                                    <p>223,660</p>
+                                </td>
+                                <td width="86">
+                                    <p>234,985</p>
+                                </td>
+                                <td width="86">
+                                    <p>253,405</p>
+                                </td>
+                                <td width="86">
+                                    <p>283,260</p>
+                                </td>
+                                <td width="86">
+                                    <p>313,405</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Manufacturing &amp; Wholesale</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>461,715</p>
+                                </td>
+                                <td width="86">
+                                    <p>493,060</p>
+                                </td>
+                                <td width="86">
+                                    <p>428,550</p>
+                                </td>
+                                <td width="86">
+                                    <p>423,600</p>
+                                </td>
+                                <td width="86">
+                                    <p>421,295</p>
+                                </td>
+                                <td width="86">
+                                    <p>420,630</p>
+                                </td>
+                                <td width="86">
+                                    <p>417,655</p>
+                                </td>
+                                <td width="86">
+                                    <p>413,115</p>
+                                </td>
+                                <td width="86">
+                                    <p>408,280</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Retail</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>351,945</p>
+                                </td>
+                                <td width="86">
+                                    <p>385,995</p>
+                                </td>
+                                <td width="86">
+                                    <p>325,645</p>
+                                </td>
+                                <td width="86">
+                                    <p>356,555</p>
+                                </td>
+                                <td width="86">
+                                    <p>364,515</p>
+                                </td>
+                                <td width="86">
+                                    <p>372,655</p>
+                                </td>
+                                <td width="86">
+                                    <p>380,975</p>
+                                </td>
+                                <td width="86">
+                                    <p>389,480</p>
+                                </td>
+                                <td width="86">
+                                    <p>398,175</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Transportation &amp; Utilities</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>92,200</p>
+                                </td>
+                                <td width="86">
+                                    <p>105,775</p>
+                                </td>
+                                <td width="86">
+                                    <p>97,135</p>
+                                </td>
+                                <td width="86">
+                                    <p>100,875</p>
+                                </td>
+                                <td width="86">
+                                    <p>102,025</p>
+                                </td>
+                                <td width="86">
+                                    <p>101,545</p>
+                                </td>
+                                <td width="86">
+                                    <p>103,370</p>
+                                </td>
+                                <td width="86">
+                                    <p>106,770</p>
+                                </td>
+                                <td width="86">
+                                    <p>110,460</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Information</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>127,220</p>
+                                </td>
+                                <td width="86">
+                                    <p>174,155</p>
+                                </td>
+                                <td width="86">
+                                    <p>117,545</p>
+                                </td>
+                                <td width="86">
+                                    <p>167,695</p>
+                                </td>
+                                <td width="86">
+                                    <p>164,360</p>
+                                </td>
+                                <td width="86">
+                                    <p>163,800</p>
+                                </td>
+                                <td width="86">
+                                    <p>165,255</p>
+                                </td>
+                                <td width="86">
+                                    <p>165,675</p>
+                                </td>
+                                <td width="86">
+                                    <p>164,965</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Financial &amp; Leasing</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>199,940</p>
+                                </td>
+                                <td width="86">
+                                    <p>207,910</p>
+                                </td>
+                                <td width="86">
+                                    <p>194,285</p>
+                                </td>
+                                <td width="86">
+                                    <p>246,565</p>
+                                </td>
+                                <td width="86">
+                                    <p>253,580</p>
+                                </td>
+                                <td width="86">
+                                    <p>248,760</p>
+                                </td>
+                                <td width="86">
+                                    <p>243,165</p>
+                                </td>
+                                <td width="86">
+                                    <p>238,500</p>
+                                </td>
+                                <td width="86">
+                                    <p>234,545</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Professional &amp; Managerial Services</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>619,135</p>
+                                </td>
+                                <td width="86">
+                                    <p>787,900</p>
+                                </td>
+                                <td width="86">
+                                    <p>623,120</p>
+                                </td>
+                                <td width="86">
+                                    <p>892,265</p>
+                                </td>
+                                <td width="86">
+                                    <p>920,790</p>
+                                </td>
+                                <td width="86">
+                                    <p>962,260</p>
+                                </td>
+                                <td width="86">
+                                    <p>1,005,650</p>
+                                </td>
+                                <td width="86">
+                                    <p>1,049,290</p>
+                                </td>
+                                <td width="86">
+                                    <p>1,093,435</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Health &amp; Educational Services</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>494,930</p>
+                                </td>
+                                <td width="86">
+                                    <p>631,500</p>
+                                </td>
+                                <td width="86">
+                                    <p>512,405</p>
+                                </td>
+                                <td width="86">
+                                    <p>590,035</p>
+                                </td>
+                                <td width="86">
+                                    <p>647,675</p>
+                                </td>
+                                <td width="86">
+                                    <p>702,615</p>
+                                </td>
+                                <td width="86">
+                                    <p>758,840</p>
+                                </td>
+                                <td width="86">
+                                    <p>821,080</p>
+                                </td>
+                                <td width="86">
+                                    <p>887,590</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Arts, Recreation &amp; Other Services</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>566,460</p>
+                                </td>
+                                <td width="86">
+                                    <p>610,745</p>
+                                </td>
+                                <td width="86">
+                                    <p>485,720</p>
+                                </td>
+                                <td width="86">
+                                    <p>522,895</p>
+                                </td>
+                                <td width="86">
+                                    <p>530,455</p>
+                                </td>
+                                <td width="86">
+                                    <p>544,530</p>
+                                </td>
+                                <td width="86">
+                                    <p>561,365</p>
+                                </td>
+                                <td width="86">
+                                    <p>576,465</p>
+                                </td>
+                                <td width="86">
+                                    <p>591,820</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Government</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>362,270</p>
+                                </td>
+                                <td width="86">
+                                    <p>401,885</p>
+                                </td>
+                                <td width="86">
+                                    <p>450,520</p>
+                                </td>
+                                <td width="86">
+                                    <p>469,690</p>
+                                </td>
+                                <td width="86">
+                                    <p>482,970</p>
+                                </td>
+                                <td width="86">
+                                    <p>491,245</p>
+                                </td>
+                                <td width="86">
+                                    <p>490,830</p>
+                                </td>
+                                <td width="86">
+                                    <p>480,430</p>
+                                </td>
+                                <td width="86">
+                                    <p>471,315</p>
+                                </td>
+                            </tr>
+                             <tr text-align="right">
+                                <td width="230">
+                                    <p><strong>Total Jobs</strong></p>
+                                </td>
+                                <td width="86">
+                                    <p>3,451,820</p>
+                                </td>
+                                <td width="86">
+                                    <p>4,026,060</p>
+                                </td>
+                                <td width="86">
+                                    <p>3,422,845</p>
+                                </td>
+                                <td width="86">
+                                    <p>4,010,135</p>
+                                </td>
+                                <td width="86">
+                                    <p>4,136,190</p>
+                                </td>
+                                <td width="86">
+                                    <p>4,267,760</p>
+                                </td>
+                                <td width="86">
+                                    <p>4,405,125</p>
+                                </td>
+                                <td width="86">
+                                    <p>4,548,565</p>
+                                </td>
+                                <td width="86">
+                                    <p>4,698,375</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>      
     </div>
