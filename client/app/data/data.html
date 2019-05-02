@@ -93,9 +93,8 @@
                 </div>
             </form>
             <button class="btn btn-data ma-top-20 ma-bottom-40" ng-click="dataCtrl.updateTable()">View Data</button>
+            <button class="btn btn-data ma-top-20 ma-bottom-40" ng-csv="dataCtrl.finalData" csv-header="['', '2010', '2015','2020','2025','2030','2035','2040']" filename="download.csv">Export</button>
             <!-- <button class="btn btn-data ma-top-20 ma-bottom-40" ng-click="dataCtrl.mapView()">View Map</button> -->
-
-
         </div>
         <div class="col-lg-9 col-md-10 col-sm-12 ma-top-80 mb-5">
             <div class="table-content" style="margin-top: 80px;">

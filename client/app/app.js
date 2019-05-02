@@ -5,6 +5,7 @@ import angular from 'angular';
 import ngCookies from 'angular-cookies';
 import ngResource from 'angular-resource';
 import ngSanitize from 'angular-sanitize';
+import ngCsv from 'ng-csv';
 
 import uiRouter from 'angular-ui-router';
 
@@ -27,7 +28,7 @@ import dataService from '../components/services/dataService/dataService.service'
 
 import './app.scss';
 
-angular.module('projections2040App', [ngCookies, ngResource, ngSanitize, uiRouter, navbar, footer,
+angular.module('projections2040App', [ngCookies, ngResource, ngSanitize, ngCsv, uiRouter, navbar, footer,
         main, data, feedback, map, dataService, constants, util
     ])
     .config(routeConfig);
