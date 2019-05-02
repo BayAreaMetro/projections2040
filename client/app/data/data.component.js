@@ -178,22 +178,22 @@ export class DataComponent {
 
 
                 // Calculate county totals
-                var countyTotal = {};
-                var year2010, year2015, year2020, year2025, year2030, year2035, year2040;
-                countyTotal.name = county;
+                //var countyTotal = {};
+                //var year2010, year2015, year2020, year2025, year2030, year2035, year2040;
+                //countyTotal.name = county;
                 //countyTotal[2005] = _.sumBy(finalData, 2005);
-                countyTotal[2010] = _.sumBy(finalData, 2010);
-                countyTotal[2015] = _.sumBy(finalData, 2015);
-                countyTotal[2020] = _.sumBy(finalData, 2020);
-                countyTotal[2025] = _.sumBy(finalData, 2025);
-                countyTotal[2030] = _.sumBy(finalData, 2030);
-                countyTotal[2035] = _.sumBy(finalData, 2035);
-                countyTotal[2040] = _.sumBy(finalData, 2040);
+                //countyTotal[2010] = _.sumBy(finalData, 2010);
+                //countyTotal[2015] = _.sumBy(finalData, 2015);
+                // countyTotal[2020] = _.sumBy(finalData, 2020);
+                // countyTotal[2025] = _.sumBy(finalData, 2025);
+                // countyTotal[2030] = _.sumBy(finalData, 2030);
+                // countyTotal[2035] = _.sumBy(finalData, 2035);
+                // countyTotal[2040] = _.sumBy(finalData, 2040);
 
                 // Set scope variables
                 this.finalData = finalData;
                 //console.log(finalData);
-                this.countyTotal = countyTotal;
+                //this.countyTotal = countyTotal;
 
 
             });
