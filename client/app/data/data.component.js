@@ -137,7 +137,7 @@ export class DataComponent {
                 var uniqueNames = [];
 
                 if (geography === 'jurisdiction') {
-                    uniqueNames = _.orderBy(_.uniq(_.map(responseData, 'sort_order')));
+                    uniqueNames = _.orderBy(_.uniq(_.map(responseData, 'jurisdiction')));
                     console.log(uniqueNames);
                 }
 
