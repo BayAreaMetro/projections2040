@@ -63,7 +63,7 @@ export class MainController {
             //Set Global viz variable
 
             this.viz = initViz();
-            this.dataviz = initDataViz();
+            //this.dataviz = initDataViz();
             //console.log(dataviz);
 
 
