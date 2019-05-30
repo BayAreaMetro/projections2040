@@ -2,23 +2,23 @@
     <div class="row">
         <div class="col-lg-3 col-md-2 col-sm-0 mb-5" style="margin-top: 240px;">
             <form class="form-inline" action="/action_page.php">
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label class="mr-sm-2" for="select">
                            <span>Select Geography</span>
                            </label>
-                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="select" name="select" ng-model="dataCtrl.geographyName">
-                            <option value="ssa">
-                                Subregional Study Area
-                            </option>
-                            <option value="jurisdiction">
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="select" name="select" ng-model="dataCtrl.geographyName"> -->
+                <!-- <option value="ssa">
+                                    Subregional Study Area
+                                </option> -->
+                <!-- <option value="jurisdiction">
                                 Jurisdiction
-                            </option>
-                            <!-- <option value="pda">
+                            </option> -->
+                <!--<option value="pda">
                               Priority Development Area
                             </option> -->
-                           
+                <!--                            
                            </select>
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label class="mr-sm-2 mt-2" for="select1">
                             <span>Select County</span>  
@@ -58,7 +58,7 @@
                                 <span>Select Data Group</span>  
                                </label>
                     <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="select5" name="select5" ng-model="dataCtrl.dataGroup" ng-change="dataCtrl.updateVariableList()">
-                            <option value="Total Jobs">
+                            <option value="Jobs">
                             Jobs
                             </option>
                             <option value="Households">
@@ -67,21 +67,21 @@
                             <option value="Housing Units">
                             Housing Units
                             </option>
-                            <option value="Total Population">
+                            <option value="Population">
                             Population
                             </option>
                             <option value="Employed Residents">
                             Employed Residents
                             </option>
-                            <option value="Total Population by Age">
+                            <option value="Population by Age">
                             Population by Age
                             </option>
-                            <option value="Total Population by Gender and Age">
+                            <option value="Population by Gender and Age">
                             Population by Gender and Age
                             </option>
-                            <option value="Household Income">
+                            <!-- <option value="Household Income">
                             Income
-                            </option>
+                            </option> -->
                     </select>
                 </div>
                 <div class="form-group">
@@ -93,9 +93,9 @@
                 </div>
             </form>
             <button class="btn btn-data ma-top-20 ma-bottom-40" ng-click="dataCtrl.updateTable()">View Data</button>
+            <button class="btn btn-data ma-top-20 ma-bottom-40" ng-csv="dataCtrl.finalData" csv-header="['Name','2010', '2015', '2020','2025','2030','2035','2040','sortOrder']" csv-column-order="['name','2010', '2015', '2020','2025','2030','2035','2040','sortOrder']"
+                filename="download.csv">Export</button>
             <!-- <button class="btn btn-data ma-top-20 ma-bottom-40" ng-click="dataCtrl.mapView()">View Map</button> -->
-
-
         </div>
         <div class="col-lg-9 col-md-10 col-sm-12 ma-top-80 mb-5">
             <div class="table-content" style="margin-top: 80px;">
@@ -104,7 +104,7 @@
                 <table class="table table-striped table-responsive">
                     <thead class="text-right">
                         <th></th>
-                        <th>2005</th>
+                        <!-- <th>2005</th> -->
                         <th>2010</th>
                         <th>2015</th>
                         <th>2020</th>
@@ -116,7 +116,7 @@
                     <tbody>
                         <tr ng-repeat="data in dataCtrl.finalData | orderBy:'sortOrder'">
                             <td>{{data.name}}</td>
-                            <td class="text-right">{{data[2005]| number:0}}</td>
+                            <!-- <td class="text-right">{{data[2005]| number:0}}</td> -->
                             <td class="text-right">{{data[2010]| number:0}}</td>
                             <td class="text-right">{{data[2015]| number:0}}</td>
                             <td class="text-right">{{data[2020]| number:0}}</td>
@@ -125,13 +125,13 @@
                             <td class="text-right">{{data[2035]| number:0}}</td>
                             <td class="text-right">{{data[2040]| number:0}}</td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <td>
                                 <h6>{{dataCtrl.countyTotal.name}} County</h6>
                             </td>
                             <td class="text-right">
                                 <h6>{{dataCtrl.countyTotal[2005]| number:0}}</h6>
-                            </td>
+                            </td> 
                             <td class="text-right">
                                 <h6>{{dataCtrl.countyTotal[2010]| number:0}}</h6>
                             </td>
@@ -153,7 +153,7 @@
                             <td class="text-right">
                                 <h6>{{dataCtrl.countyTotal[2040]| number:0}}</h6>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>

@@ -35,6 +35,7 @@
                     The projections illustrate how the region will accommodate growth if local jurisdictions adopt a set of policies consistent with the vision of Plan Bay Area. We make reasonable assumptions about the Bay Area’s share of national economic
                     growth informed by an understanding of the region’s changing demographic characteristics. The distribution of growth within the region among counties, cities and PDAs is built around expected local policies and infrastructure investment
                     as well as historic economic behavior.</p>
+                <p>For more details, download the report here: <a class="mouseover-red" href="http://mtcmedia.s3.amazonaws.com/files/Projections_2040-ABAG-MTC-web.pdf" target="_blank">Projections 2040 MTC/ABAG Report</a></p>
             </div>
             <div class="col-lg-5 mx-auto text-right">
                 <div class="item-1">
@@ -74,11 +75,11 @@
 
             <div class="col-lg-12 mx-auto">
                 <div class="button-wrapper btn-fill-space mb-4 mt-3">
-                    <button class="btn btn-app" value="Total Population" ng-click="$ctrl.filterViz($event)"><span class="btnSelect">Population</span></button>
-                    <button class="btn btn-app" value="Total Households" ng-click="$ctrl.filterViz($event)"><span class="btnSelect">Households</span></button>
-                    <button class="btn btn-app" value="Total Jobs" ng-click="$ctrl.filterViz($event)"><span class="btnSelect">Jobs</span></button>
+                    <button class="btn btn-app" value="Population" ng-click="$ctrl.filterViz($event)"><span class="btnSelect">Population</span></button>
+                    <button class="btn btn-app" value="Households" ng-click="$ctrl.filterViz($event)"><span class="btnSelect">Households</span></button>
+                    <button class="btn btn-app" value="Jobs" ng-click="$ctrl.filterViz($event)"><span class="btnSelect">Jobs</span></button>
                     <button class="btn btn-app" value="Employed Residents" ng-click="$ctrl.filterViz($event)"><span class="btnSelect">Employed Residents</span></button>
-                    <button class="btn btn-app" value="Total Housing Units" ng-click="$ctrl.filterViz($event)"><span class="btnSelect">Housing Units</span></button>
+                    <button class="btn btn-app" value="Housing Units" ng-click="$ctrl.filterViz($event)"><span class="btnSelect">Housing Units</span></button>
                 </div>
             </div>
         </div>
@@ -95,15 +96,602 @@
         <div class="row mt-3">
             <div class="col-lg-12 mx-auto">
                 <h4 class="ma-bottom-20">Regional Projections</h4>
-                <div id="dataContainer" style="width:100%; height:auto;"></div>
+                <!-- <div id="dataContainer" style="width:100%; height:auto;"></div> -->
+                <div id="forecastTable" style="width:100%; height:auto;">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr text-align="right">
+                                <td rowspan="1">
+                                    &nbsp; &nbsp;
+                                </td>
+                                <td colspan="2">
+                                    <strong>Public Data Estimates</strong>
+                                </td>
+                                <td colspan="7">
+                                    <strong>Plan Bay Area Model Estimates</strong>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr text-align="right">
+                                <td>
+                                    <td>
+                                        2010
+                                    </td>
+                                    <td>
+                                        2015
+                                    </td>
+                                    <td>
+                                        2010
+                                    </td>
+                                    <td>
+                                        2015
+                                    </td>
+                                    <td>
+                                        2020
+                                    </td>
+                                    <td>
+                                        2025
+                                    </td>
+                                    <td>
+                                        2030
+                                    </td>
+                                    <td>
+                                        2035
+                                    </td>
+                                    <td>
+                                        2040
+                                    </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Population</strong>
+                                </td>
+                                <td>
+                                    7,150,740
+                                </td>
+                                <td>
+                                    7,573,915
+                                </td>
+                                <td>
+                                    7,174,920
+                                </td>
+                                <td>
+                                    7,591,490
+                                </td>
+                                <td>
+                                    7,920,230
+                                </td>
+                                <td>
+                                    8,284,200
+                                </td>
+                                <td>
+                                    8,689,440
+                                </td>
+                                <td>
+                                    9,142,745
+                                </td>
+                                <td>
+                                    9,652,950
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Household Population</strong>
+                                </td>
+                                <td>
+                                    6,998,465
+                                </td>
+                                <td>
+                                    7,423,305
+                                </td>
+                                <td>
+                                    7,029,350
+                                </td>
+                                <td>
+                                    7,438,280
+                                </td>
+                                <td>
+                                    7,758,540
+                                </td>
+                                <td>
+                                    8,113,640
+                                </td>
+                                <td>
+                                    8,509,245
+                                </td>
+                                <td>
+                                    8,952,495
+                                </td>
+                                <td>
+                                    9,451,375
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Households</strong>
+                                </td>
+                                <td>
+                                    2,606,290
+                                </td>
+                                <td>
+                                    2,678,810
+                                </td>
+                                <td>
+                                    2,608,025
+                                </td>
+                                <td>
+                                    2,760,480
+                                </td>
+                                <td>
+                                    2,881,965
+                                </td>
+                                <td>
+                                    3,009,055
+                                </td>
+                                <td>
+                                    3,142,015
+                                </td>
+                                <td>
+                                    3,281,130
+                                </td>
+                                <td>
+                                    3,426,700
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Persons per Household</strong>
+                                </td>
+                                <td>
+                                    2.69
+                                </td>
+                                <td>
+                                    2.77
+                                </td>
+                                <td>
+                                    2.70
+                                </td>
+                                <td>
+                                    2.69
+                                </td>
+                                <td>
+                                    2.69
+                                </td>
+                                <td>
+                                    2.70
+                                </td>
+                                <td>
+                                    2.71
+                                </td>
+                                <td>
+                                    2.73
+                                </td>
+                                <td>
+                                    2.76
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Employed Residents</strong>
+                                </td>
+                                <td>
+                                    3,506,680
+                                </td>
+                                <td>
+                                    3,894,850
+                                </td>
+                                <td>
+                                    3,376,380
+                                </td>
+                                <td>
+                                    4,026,995
+                                </td>
+                                <td>
+                                    4,147,000
+                                </td>
+                                <td>
+                                    4,270,595
+                                </td>
+                                <td>
+                                    4,397,865
+                                </td>
+                                <td>
+                                    4,528,925
+                                </td>
+                                <td>
+                                    4,663,900
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Agriculture &amp; Natural Resources</strong>
+                                </td>
+                                <td>
+                                    17,775
+                                </td>
+                                <td>
+                                    18,905
+                                </td>
+                                <td>
+                                    22,800
+                                </td>
+                                <td>
+                                    24,990
+                                </td>
+                                <td>
+                                    24,865
+                                </td>
+                                <td>
+                                    24,740
+                                </td>
+                                <td>
+                                    24,620
+                                </td>
+                                <td>
+                                    24,500
+                                </td>
+                                <td>
+                                    24,380
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Construction</strong>
+                                </td>
+                                <td>
+                                    158,235
+                                </td>
+                                <td>
+                                    208,230
+                                </td>
+                                <td>
+                                    165,115
+                                </td>
+                                <td>
+                                    214,970
+                                </td>
+                                <td>
+                                    223,660
+                                </td>
+                                <td>
+                                    234,985
+                                </td>
+                                <td>
+                                    253,405
+                                </td>
+                                <td>
+                                    283,260
+                                </td>
+                                <td>
+                                    313,405
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Manufacturing &amp; Wholesale</strong>
+                                </td>
+                                <td>
+                                    461,715
+                                </td>
+                                <td>
+                                    493,060
+                                </td>
+                                <td>
+                                    428,550
+                                </td>
+                                <td>
+                                    423,600
+                                </td>
+                                <td>
+                                    421,295
+                                </td>
+                                <td>
+                                    420,630
+                                </td>
+                                <td>
+                                    417,655
+                                </td>
+                                <td>
+                                    413,115
+                                </td>
+                                <td>
+                                    408,280
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Retail</strong>
+                                </td>
+                                <td>
+                                    351,945
+                                </td>
+                                <td>
+                                    385,995
+                                </td>
+                                <td>
+                                    325,645
+                                </td>
+                                <td>
+                                    356,555
+                                </td>
+                                <td>
+                                    364,515
+                                </td>
+                                <td>
+                                    372,655
+                                </td>
+                                <td>
+                                    380,975
+                                </td>
+                                <td>
+                                    389,480
+                                </td>
+                                <td>
+                                    398,175
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Transportation &amp; Utilities</strong>
+                                </td>
+                                <td>
+                                    92,200
+                                </td>
+                                <td>
+                                    105,775
+                                </td>
+                                <td>
+                                    97,135
+                                </td>
+                                <td>
+                                    100,875
+                                </td>
+                                <td>
+                                    102,025
+                                </td>
+                                <td>
+                                    101,545
+                                </td>
+                                <td>
+                                    103,370
+                                </td>
+                                <td>
+                                    106,770
+                                </td>
+                                <td>
+                                    110,460
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Information</strong>
+                                </td>
+                                <td>
+                                    127,220
+                                </td>
+                                <td>
+                                    174,155
+                                </td>
+                                <td>
+                                    117,545
+                                </td>
+                                <td>
+                                    167,695
+                                </td>
+                                <td>
+                                    164,360
+                                </td>
+                                <td>
+                                    163,800
+                                </td>
+                                <td>
+                                    165,255
+                                </td>
+                                <td>
+                                    165,675
+                                </td>
+                                <td>
+                                    164,965
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Financial &amp; Leasing</strong>
+                                </td>
+                                <td>
+                                    199,940
+                                </td>
+                                <td>
+                                    207,910
+                                </td>
+                                <td>
+                                    194,285
+                                </td>
+                                <td>
+                                    246,565
+                                </td>
+                                <td>
+                                    253,580
+                                </td>
+                                <td>
+                                    248,760
+                                </td>
+                                <td>
+                                    243,165
+                                </td>
+                                <td>
+                                    238,500
+                                </td>
+                                <td>
+                                    234,545
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Professional &amp; Managerial Services</strong>
+                                </td>
+                                <td>
+                                    619,135
+                                </td>
+                                <td>
+                                    787,900
+                                </td>
+                                <td>
+                                    623,120
+                                </td>
+                                <td>
+                                    892,265
+                                </td>
+                                <td>
+                                    920,790
+                                </td>
+                                <td>
+                                    962,260
+                                </td>
+                                <td>
+                                    1,005,650
+                                </td>
+                                <td>
+                                    1,049,290
+                                </td>
+                                <td>
+                                    1,093,435
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Health &amp; Educational Services</strong>
+                                </td>
+                                <td>
+                                    494,930
+                                </td>
+                                <td>
+                                    631,500
+                                </td>
+                                <td>
+                                    512,405
+                                </td>
+                                <td>
+                                    590,035
+                                </td>
+                                <td>
+                                    647,675
+                                </td>
+                                <td>
+                                    702,615
+                                </td>
+                                <td>
+                                    758,840
+                                </td>
+                                <td>
+                                    821,080
+                                </td>
+                                <td>
+                                    887,590
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Arts, Recreation &amp; Other Services</strong>
+                                </td>
+                                <td>
+                                    566,460
+                                </td>
+                                <td>
+                                    610,745
+                                </td>
+                                <td>
+                                    485,720
+                                </td>
+                                <td>
+                                    522,895
+                                </td>
+                                <td>
+                                    530,455
+                                </td>
+                                <td>
+                                    544,530
+                                </td>
+                                <td>
+                                    561,365
+                                </td>
+                                <td>
+                                    576,465
+                                </td>
+                                <td>
+                                    591,820
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Government</strong>
+                                </td>
+                                <td>
+                                    362,270
+                                </td>
+                                <td>
+                                    401,885
+                                </td>
+                                <td>
+                                    450,520
+                                </td>
+                                <td>
+                                    469,690
+                                </td>
+                                <td>
+                                    482,970
+                                </td>
+                                <td>
+                                    491,245
+                                </td>
+                                <td>
+                                    490,830
+                                </td>
+                                <td>
+                                    480,430
+                                </td>
+                                <td>
+                                    471,315
+                                </td>
+                            </tr>
+                            <tr text-align="right">
+                                <td>
+                                    <strong>Total Jobs</strong>
+                                </td>
+                                <td>
+                                    3,451,820
+                                </td>
+                                <td>
+                                    4,026,060
+                                </td>
+                                <td>
+                                    3,422,845
+                                </td>
+                                <td>
+                                    4,010,135
+                                </td>
+                                <td>
+                                    4,136,190
+                                </td>
+                                <td>
+                                    4,267,760
+                                </td>
+                                <td>
+                                    4,405,125
+                                </td>
+                                <td>
+                                    4,548,565
+                                </td>
+                                <td>
+                                    4,698,375
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        <!-- Plot.ly Viz -->
-        <!-- &show_link=false will hide Edit Link Button add after sharekey-plotly link -->
-        <!-- <div>
-                    <a href="https://plot.ly/~ksmith_mtc/1/?share_key=DJpnqlJWcqNUrbT9rXIqKd" target="_blank" title="Total Households" style="display: block; text-align: center;"><img src="https://plot.ly/~ksmith_mtc/1.png?share_key=DJpnqlJWcqNUrbT9rXIqKd" alt="Total Households" style="max-width: 100%;width: 600px;" width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
-                    <script data-plotly="ksmith_mtc:1" sharekey-plotly="DJpnqlJWcqNUrbT9rXIqKd&show_link=false" src="https://plot.ly/embed.js" async></script>
-                </div> -->
     </div>
 
 </section>
@@ -124,14 +712,14 @@
         <div class="row">
             <div class="col-lg-12 mx-auto">
                 <p>You can download the projections data for free from our Open Data site. The following datasets are available for downloads:</p>
-                <p> <a href="https://open-data-demo.mtc.ca.gov/Agency/Draft-Projections-2017-by-Subregional-Study-Areas/bijg-2bez" target="_blank" class="btn btn-data btn-lg">Projections 2040 by Subregional Study Area</a>
+
+                <p>
+                    <a href="https://mtc.data.socrata.com/api/views/grqz-amra/files/bf2d7a33-b68e-473d-800f-956d08207b77?download=true&filename=formated_tables_juris.xlsx" target="_blank" class="btn btn-data btn-lg">Projections 2040 by Jurisdiction (Curated)</a>
                 </p>
                 <p>
-                    <a href="https://open-data-demo.mtc.ca.gov/Agency/Draft-Projections-2017-By-Jurisdiction/nhbf-ixt8" target="_blank" class="btn btn-data btn-lg">Projections 2040 by Jurisdiction Boundary</a>
+                    <a href="https://data.bayareametro.gov/Demography/Projections-2040-by-Jurisdiction/grqz-amra" target="_blank" class="btn btn-data btn-lg">Projections 2040 by Jurisdiction (Long Format)</a>
                 </p>
-                <!-- <p>
-                                <a href="https://open-data-demo.mtc.ca.gov/Agency/Draft-Projections-2017-by-Priority-Development-Are/wbrw-wuir" target="_blank" class="btn btn-default btn-lg">Projections 2040 by Priority Development Areas</a>
-                            </p> -->
+
             </div>
         </div>
     </div>
