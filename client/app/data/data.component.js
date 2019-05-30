@@ -14,13 +14,15 @@ export class DataComponent {
     }
 
     $onInit() {
-        //Initial Filter
+        //Create Variables for Initial Filter
         var county = 'Alameda';
         var variable = 'Total Households';
         var category = 'Households';
+        
         this.county = county;
         this.variable = variable;
         this.category = category;
+        
         //Set Filter Control Selection Values
         this.dataGroup = 'Households';
         this.countyName = 'Alameda';
